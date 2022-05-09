@@ -52,6 +52,12 @@
     <Compile Include="Accueil.Designer.cs">
       <DependentUpon>Accueil.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class\Episode.cs" />
+    <Compile Include="Class\Evaluer.cs" />
+    <Compile Include="Class\Identifiant.cs" />
+    <Compile Include="Class\Partager.cs" />
+    <Compile Include="Class\Saison.cs" />
+    <Compile Include="Class\Serie.cs" />
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
     </Compile>
