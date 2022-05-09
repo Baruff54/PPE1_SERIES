@@ -1,0 +1,11 @@
+Id,nom,genre,dateSortie,saison,episode
+1,lucifer,action,25/01/2016,5,75
+2,the100,Science Fiction,19/03/2014,7,100
+3,Erased,anime,7/01/2016,1,12
+4,Prison Break,action,29/08/2005,5,89
+5,My Hero Academia,anime,22/01/2019,4,85
+6,Lupin,action,08/01/2021,1,5
+7,stranger things,Scinece Fiction,15/07/2016,3,25
+8,The Walking Dead,horreur,31/10/2010,10,115
+9,Outer Banks,dramatique,15/04/2020,1,10
+10,On my block,comique,16/03/2018,3,28
