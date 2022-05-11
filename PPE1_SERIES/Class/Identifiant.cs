@@ -10,17 +10,17 @@ namespace PPE1_SERIES.Class
     {
         private int id;
         private string login;
-        private string mdp;
+        private bool connecter; // True si la connexion à été établie
 
-        public Identifiant(int id, string login, string mdp)
+        public Identifiant(int id, string login, bool connecter)
         {
             this.id = id;
             this.login = login;
-            this.mdp = mdp;
+            this.connecter = connecter;
         }
 
         public int Id { get => id; set => id = value; }
         public string Login { get => login; set => login = value; }
-        public string Mdp { get => mdp; set => mdp = value; }
+        public bool Connecter { get => connecter; set => connecter = value; }
     }
 }

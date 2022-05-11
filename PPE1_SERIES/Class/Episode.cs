@@ -12,20 +12,20 @@ namespace PPE1_SERIES.Class
         private Saison laSaison;
         private Serie laSerie;
         private string nom;
-        private double time;
+        private double duree;
 
-        public Episode(int id, Saison laSaison, Serie laSerie, string nom, double time)
+        public Episode(int id, Saison laSaison, Serie laSerie, string nom, double duree)
         {
             this.id = id;
             this.laSaison = laSaison;
             this.laSerie = laSerie;
             this.nom = nom;
-            this.time = time;
+            this.duree = duree;
         }
 
         public int Id { get => id; set => id = value; }
         public string Nom { get => nom; set => nom = value; }
-        public double Time { get => time; set => time = value; }
+        public double Duree { get => duree; set => duree = value; }
         internal Saison LaSaison { get => laSaison; set => laSaison = value; }
         internal Serie LaSerie { get => laSerie; set => laSerie = value; }
     }
