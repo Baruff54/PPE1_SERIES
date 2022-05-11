@@ -11,7 +11,7 @@ namespace PPE1_SERIES.DAO
 {
     internal class DAO
     {
-        MySqlConnection connexion = new MySqlConnection("server=localhost;database=PPE1;user=root;password=");
+        MySqlConnection connexion = new MySqlConnection("server=baruff.fr;database=ppeSerie;user=ppeSerie;password=ppeSerie");
         public void Conn()
         {
             connexion.Open();
