@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using PPE1_SERIES.DAO;
+using MySql.Data.MySqlClient;
 
 namespace PPE1_SERIES
 {
@@ -33,29 +35,23 @@ namespace PPE1_SERIES
 
         private void connect_Click(object sender, EventArgs e)
         {
-            string verif = "C:\\Users\\loris\\source\\repos\\PPE1_SERIES\\PPE1_SERIES\\login.txt";
-            string s = "";
-            int access = 0;
-            StreamReader fichierEntree = File.OpenText(verif);
-            while ((s = fichierEntree.ReadLine()) != null && access == 0)
+            IdentifiantDAO idao = new IdentifiantDAO();
+            string mdphashersaler = idao.HasherSalerMDP(mdp.Text);
+            bool conn = idao.SELECT(login.Text, mdphashersaler);
+            if (conn == true)
             {
-                string[] split = s.Split(',');
-                if (split[0] == login.Text && split[1] == mdp.Text) access = 1;
-            }
-            fichierEntree.Close();
-
-            if (access == 1)
-            {
-                identifiant = login.Text;
-                this.Hide();
-                Accueil accueil= new Accueil();
-                accueil.ShowDialog();
+                int idconn = idao.getId(login.Text, mdphashersaler);
+                Accueil a = new Accueil(idconn);
+                a.Show();
+                //this.Close();
             }
             else
             {
-                error.Text = "Mot de passe ou identifiant incorrecte.";
+                login.Text = "";
+                mdp.Text = "";
                 error.Visible = true;
             }
+
         }
     }
 }

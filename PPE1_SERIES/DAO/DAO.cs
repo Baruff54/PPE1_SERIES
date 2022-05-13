@@ -16,13 +16,20 @@ namespace PPE1_SERIES.DAO
         {
             connexion.Open();
         }
-        public MySqlDataReader SELECT(string requete)
+        public List<String> SELECT(string requete)
         {
+            List<string> resultat = new List<string>();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = connexion;
             cmd.CommandText = requete;
             MySqlDataReader reader = cmd.ExecuteReader();
-            return reader;
+            int i = 0;
+            while (reader.Read())
+            {
+                resultat.Add(reader[i].ToString());
+                i++;
+            }
+            return resultat;
         }
         public void CHANGE(string requete)
         {

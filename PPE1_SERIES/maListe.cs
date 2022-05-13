@@ -46,9 +46,9 @@ namespace PPE1_SERIES
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            /*this.Hide();
             Accueil accueil = new Accueil();
-            accueil.ShowDialog();
+            accueil.ShowDialog();*/
         }
 
         private void recherche_TextChanged(object sender, EventArgs e)

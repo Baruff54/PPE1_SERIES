@@ -49,27 +49,32 @@
             this.panel1.Controls.Add(this.login);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(60, 40);
+            this.panel1.Location = new System.Drawing.Point(80, 49);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(183, 291);
+            this.panel1.Size = new System.Drawing.Size(243, 358);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // error
             // 
             this.error.AutoSize = true;
-            this.error.Location = new System.Drawing.Point(4, 188);
+            this.error.BackColor = System.Drawing.Color.Red;
+            this.error.ForeColor = System.Drawing.Color.White;
+            this.error.Location = new System.Drawing.Point(25, 231);
+            this.error.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.error.Name = "error";
-            this.error.Size = new System.Drawing.Size(46, 13);
+            this.error.Size = new System.Drawing.Size(170, 17);
             this.error.TabIndex = 6;
-            this.error.Text = "ERROR";
+            this.error.Text = "La connexion a échouée !";
             this.error.Visible = false;
             // 
             // Inscript
             // 
-            this.Inscript.Location = new System.Drawing.Point(45, 263);
+            this.Inscript.Location = new System.Drawing.Point(60, 324);
+            this.Inscript.Margin = new System.Windows.Forms.Padding(4);
             this.Inscript.Name = "Inscript";
-            this.Inscript.Size = new System.Drawing.Size(75, 23);
+            this.Inscript.Size = new System.Drawing.Size(100, 28);
             this.Inscript.TabIndex = 5;
             this.Inscript.Text = "Inscription";
             this.Inscript.UseVisualStyleBackColor = true;
@@ -77,9 +82,10 @@
             // 
             // connect
             // 
-            this.connect.Location = new System.Drawing.Point(45, 216);
+            this.connect.Location = new System.Drawing.Point(60, 266);
+            this.connect.Margin = new System.Windows.Forms.Padding(4);
             this.connect.Name = "connect";
-            this.connect.Size = new System.Drawing.Size(75, 23);
+            this.connect.Size = new System.Drawing.Size(100, 28);
             this.connect.TabIndex = 4;
             this.connect.Text = "Connexion";
             this.connect.UseVisualStyleBackColor = true;
@@ -87,42 +93,48 @@
             // 
             // mdp
             // 
-            this.mdp.Location = new System.Drawing.Point(32, 154);
+            this.mdp.Location = new System.Drawing.Point(43, 190);
+            this.mdp.Margin = new System.Windows.Forms.Padding(4);
             this.mdp.Name = "mdp";
-            this.mdp.Size = new System.Drawing.Size(100, 20);
+            this.mdp.PasswordChar = '•';
+            this.mdp.Size = new System.Drawing.Size(132, 22);
             this.mdp.TabIndex = 3;
             // 
             // login
             // 
-            this.login.Location = new System.Drawing.Point(32, 74);
+            this.login.Location = new System.Drawing.Point(43, 91);
+            this.login.Margin = new System.Windows.Forms.Padding(4);
             this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(100, 20);
+            this.login.Size = new System.Drawing.Size(132, 22);
             this.login.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 126);
+            this.label2.Location = new System.Drawing.Point(60, 155);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.Size = new System.Drawing.Size(97, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Mot de passe:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(54, 44);
+            this.label1.Location = new System.Drawing.Point(72, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Identifiant:";
             // 
             // Connexion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 385);
+            this.ClientSize = new System.Drawing.Size(409, 474);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Connexion";
             this.Text = "Connexion";
             this.panel1.ResumeLayout(false);

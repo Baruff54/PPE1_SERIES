@@ -14,7 +14,7 @@ namespace PPE1_SERIES
     public partial class Accueil : Form
     {
         string fichier = ".\\film.txt";
-        public Accueil()
+        public Accueil(int idconn)
         {
             InitializeComponent();
         }
@@ -35,12 +35,12 @@ namespace PPE1_SERIES
 
 
             string s = "";
-            StreamReader serie = File.OpenText(fichier);
+            /*StreamReader serie = File.OpenText(fichier);
             while ((s = serie.ReadLine()) != null)
             {
                 string[] split = s.Split(',');
                 listBox1.Items.Add(split[1]);
-            }
+            }*/
         }
 
         private void button2_Click(object sender, EventArgs e)

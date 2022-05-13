@@ -37,9 +37,9 @@ namespace PPE1_SERIES
 
         private void accueil_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
+            /*this.Hide();
             Accueil connect = new Accueil();
-            connect.ShowDialog();
+            connect.ShowDialog();*/
         }
 
         private void ajouter_Click(object sender, EventArgs e)
