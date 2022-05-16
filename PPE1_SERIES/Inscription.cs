@@ -34,7 +34,7 @@ namespace PPE1_SERIES
                 }
                 catch(Exception)
                 {
-                    error.Text = "Une erreur est survenue!";
+                    error.Text = "Le nom d\'utilisateur à déjà été utilisé";
                     error.Visible = true;
                 }
             }

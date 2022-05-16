@@ -44,7 +44,7 @@ namespace PPE1_SERIES.DAO
                 {
                     id = Convert.ToInt32(resultatId[0]);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     id = 0;
                 }

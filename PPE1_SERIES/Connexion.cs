@@ -48,7 +48,7 @@ namespace PPE1_SERIES
             {
                 //int idconn = idao.getId(login.Text, mdphashersaler);
                 Accueil a = new Accueil(conn);
-                this.Close();
+                //this.Close();
                 a.Show();
             }
             else

@@ -8,42 +8,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using PPE1_SERIES.DAO;
 
 namespace PPE1_SERIES
 {
     public partial class Accueil : Form
     {
-        string fichier = ".\\film.txt";
+        
         public Accueil(int idconn)
         {
             InitializeComponent();
         }
-
         private void Accueil_Load(object sender, EventArgs e)
         {
-            if (PPE1_SERIES.Connexion.identifiant != null)
+            SerieDAO sdao = new SerieDAO();
+            List<string> lesSeries = new List<string>();
+            lesSeries = sdao.SELECT();
+            foreach (string uneSerie in lesSeries)
             {
-                profil.Visible = true;
-                
-                maListe.Visible = true;
-                ajoutListe.Visible = true;
-                if (PPE1_SERIES.Connexion.identifiant == "admin")
-                {
-                    //adminButton.Visible = true;
-                }
+                listBox1.Items.Add(uneSerie);
             }
+            profil.Visible = true;
+            maListe.Visible = true;
+            ajoutListe.Visible = true;
 
-
-            string s = "";
-            /*StreamReader serie = File.OpenText(fichier);
-            while ((s = serie.ReadLine()) != null)
-            {
-                string[] split = s.Split(',');
-                listBox1.Items.Add(split[1]);
-            }*/
         }
-
-        private void button2_Click(object sender, EventArgs e)
+            private void button2_Click(object sender, EventArgs e)
         {
             /*this.Hide();
             Connexion connect = new Connexion("");
@@ -52,23 +42,23 @@ namespace PPE1_SERIES
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             amis profil = new amis();
             profil.ShowDialog();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             maListe liste = new maListe();
             liste.ShowDialog();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string s = "";
+            /*string s = "";
             string fichier = "C:\\Users\\loris\\source\\repos\\PPE1_SERIES\\PPE1_SERIES\\film.txt";
-            /*StreamReader serie = File.OpenText(fichier);
+            StreamReader serie = File.OpenText(fichier);
             while ((s = serie.ReadLine()) != null)
             {
                 string[] split = s.Split(',');
@@ -113,19 +103,12 @@ namespace PPE1_SERIES
                 if (split[1] == Convert.ToString(listBox1.SelectedItem)) nom = Convert.ToInt32(split[0]);
             }
             serie.Close();
-            if(nom != -1)
+            if (nom != -1)
             {
                 StreamWriter liste = File.AppendText(ajout);
                 liste.WriteLine(PPE1_SERIES.Connexion.identifiant + "," + nom + ",0,0");
                 liste.Close();
             }
-        }
-
-        private void adminButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            //admin Admin = new admin();
-            //Admin.ShowDialog();
         }
     }
 }

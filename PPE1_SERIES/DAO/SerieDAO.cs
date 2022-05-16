@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPE1_SERIES.Class;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,11 +30,13 @@ namespace PPE1_SERIES.DAO
             DAO.CHANGE("DELETE FROM `serie` WHERE id = "+serie);
             DAO.connClose();
         }
-        public void SELECT()
+        public List<String> SELECT()
         {
+            List<String> lesSeries = new List<String>();
             DAO.Conn();
-            DAO.SELECT("SELECT * FROM `serie`");
+            lesSeries=DAO.SELECT("SELECT nom FROM `serie`");
             DAO.connClose();
+            return lesSeries;
         }
     }
 }

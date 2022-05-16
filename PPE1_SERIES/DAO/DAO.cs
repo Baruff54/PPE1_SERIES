@@ -26,7 +26,7 @@ namespace PPE1_SERIES.DAO
             int i = 0;
             while (reader.Read())
             {
-                resultat.Add(reader[i].ToString());
+                resultat.Add(reader[0].ToString());
                 i++;
             }
             return resultat;

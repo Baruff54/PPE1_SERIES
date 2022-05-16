@@ -46,7 +46,7 @@
             // profil
             // 
             this.profil.Location = new System.Drawing.Point(21, 16);
-            this.profil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.profil.Margin = new System.Windows.Forms.Padding(4);
             this.profil.Name = "profil";
             this.profil.Size = new System.Drawing.Size(283, 60);
             this.profil.TabIndex = 0;
@@ -58,7 +58,7 @@
             // recherche
             // 
             this.recherche.Location = new System.Drawing.Point(101, 567);
-            this.recherche.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.recherche.Margin = new System.Windows.Forms.Padding(4);
             this.recherche.Name = "recherche";
             this.recherche.Size = new System.Drawing.Size(188, 22);
             this.recherche.TabIndex = 12;
@@ -79,10 +79,9 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
             this.listBox1.Items.AddRange(new object[] {
-            "Game Of Thrones",
-            "La Casa De Papel"});
+            ""});
             this.listBox1.Location = new System.Drawing.Point(17, 82);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(575, 452);
             this.listBox1.TabIndex = 10;
@@ -91,7 +90,7 @@
             // maListe
             // 
             this.maListe.Location = new System.Drawing.Point(310, 16);
-            this.maListe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maListe.Margin = new System.Windows.Forms.Padding(4);
             this.maListe.Name = "maListe";
             this.maListe.Size = new System.Drawing.Size(283, 60);
             this.maListe.TabIndex = 14;
@@ -108,7 +107,7 @@
             this.panel1.Controls.Add(this.GenreTexte);
             this.panel1.Controls.Add(this.titreTexte);
             this.panel1.Location = new System.Drawing.Point(21, 614);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(571, 118);
             this.panel1.TabIndex = 15;
@@ -166,7 +165,7 @@
             // ajoutListe
             // 
             this.ajoutListe.Location = new System.Drawing.Point(464, 565);
-            this.ajoutListe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ajoutListe.Margin = new System.Windows.Forms.Padding(4);
             this.ajoutListe.Name = "ajoutListe";
             this.ajoutListe.Size = new System.Drawing.Size(129, 28);
             this.ajoutListe.TabIndex = 16;
@@ -187,7 +186,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.profil);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Accueil";
             this.Text = "Accueil";
             this.Load += new System.EventHandler(this.Accueil_Load);

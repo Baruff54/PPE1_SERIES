@@ -109,7 +109,7 @@
             this.error.AutoSize = true;
             this.error.BackColor = System.Drawing.Color.Red;
             this.error.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.error.Location = new System.Drawing.Point(22, 255);
+            this.error.Location = new System.Drawing.Point(41, 254);
             this.error.Name = "error";
             this.error.Size = new System.Drawing.Size(58, 17);
             this.error.TabIndex = 9;
