@@ -45,9 +45,9 @@ namespace PPE1_SERIES
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Connexion connect = new Connexion();
-            connect.ShowDialog();
+            /*this.Hide();
+            Connexion connect = new Connexion("");
+            connect.ShowDialog();*/
         }
 
         private void button1_Click(object sender, EventArgs e)

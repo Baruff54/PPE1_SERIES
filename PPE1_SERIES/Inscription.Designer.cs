@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.error = new System.Windows.Forms.Label();
-            this.mdp2 = new System.Windows.Forms.TextBox();
-            this.mdp1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Identifiant = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.error = new System.Windows.Forms.Label();
+            this.mdp2 = new System.Windows.Forms.TextBox();
+            this.mdp1 = new System.Windows.Forms.TextBox();
+            this.Identifiant = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,32 +58,6 @@
             this.panel1.Size = new System.Drawing.Size(244, 307);
             this.panel1.TabIndex = 0;
             // 
-            // error
-            // 
-            this.error.AutoSize = true;
-            this.error.Location = new System.Drawing.Point(3, 262);
-            this.error.Name = "error";
-            this.error.Size = new System.Drawing.Size(46, 13);
-            this.error.TabIndex = 9;
-            this.error.Text = "ERROR";
-            this.error.Visible = false;
-            // 
-            // mdp2
-            // 
-            this.mdp2.BackColor = System.Drawing.SystemColors.Control;
-            this.mdp2.Location = new System.Drawing.Point(72, 178);
-            this.mdp2.Name = "mdp2";
-            this.mdp2.Size = new System.Drawing.Size(100, 20);
-            this.mdp2.TabIndex = 8;
-            // 
-            // mdp1
-            // 
-            this.mdp1.BackColor = System.Drawing.SystemColors.Control;
-            this.mdp1.Location = new System.Drawing.Point(72, 114);
-            this.mdp1.Name = "mdp1";
-            this.mdp1.Size = new System.Drawing.Size(100, 20);
-            this.mdp1.TabIndex = 7;
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(85, 215);
@@ -97,46 +71,76 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(76, 149);
+            this.label4.Location = new System.Drawing.Point(41, 158);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 13);
+            this.label4.Size = new System.Drawing.Size(177, 17);
             this.label4.TabIndex = 5;
-            this.label4.Text = "RE Mot de passe:";
+            this.label4.Text = "Confirmer le Mot de passe:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(85, 83);
+            this.label3.Location = new System.Drawing.Point(75, 94);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.Size = new System.Drawing.Size(97, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "Mot de passe:";
-            // 
-            // Identifiant
-            // 
-            this.Identifiant.BackColor = System.Drawing.SystemColors.Control;
-            this.Identifiant.Location = new System.Drawing.Point(72, 47);
-            this.Identifiant.Name = "Identifiant";
-            this.Identifiant.Size = new System.Drawing.Size(100, 20);
-            this.Identifiant.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(94, 31);
+            this.label2.Location = new System.Drawing.Point(87, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Identifiant:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(95, 0);
+            this.label1.Location = new System.Drawing.Point(87, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(72, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Inscription";
+            // 
+            // error
+            // 
+            this.error.AutoSize = true;
+            this.error.BackColor = System.Drawing.Color.Red;
+            this.error.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.error.Location = new System.Drawing.Point(22, 255);
+            this.error.Name = "error";
+            this.error.Size = new System.Drawing.Size(58, 17);
+            this.error.TabIndex = 9;
+            this.error.Text = "ERROR";
+            this.error.Visible = false;
+            // 
+            // mdp2
+            // 
+            this.mdp2.BackColor = System.Drawing.SystemColors.Control;
+            this.mdp2.Location = new System.Drawing.Point(72, 178);
+            this.mdp2.Name = "mdp2";
+            this.mdp2.PasswordChar = '•';
+            this.mdp2.Size = new System.Drawing.Size(100, 22);
+            this.mdp2.TabIndex = 8;
+            // 
+            // mdp1
+            // 
+            this.mdp1.BackColor = System.Drawing.SystemColors.Control;
+            this.mdp1.Location = new System.Drawing.Point(72, 114);
+            this.mdp1.Name = "mdp1";
+            this.mdp1.PasswordChar = '•';
+            this.mdp1.Size = new System.Drawing.Size(100, 22);
+            this.mdp1.TabIndex = 7;
+            // 
+            // Identifiant
+            // 
+            this.Identifiant.BackColor = System.Drawing.SystemColors.Control;
+            this.Identifiant.Location = new System.Drawing.Point(72, 47);
+            this.Identifiant.Name = "Identifiant";
+            this.Identifiant.Size = new System.Drawing.Size(100, 22);
+            this.Identifiant.TabIndex = 2;
             // 
             // Inscription
             // 
@@ -156,14 +160,14 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox mdp2;
-        private System.Windows.Forms.TextBox mdp1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Identifiant;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label error;
+        private System.Windows.Forms.TextBox mdp2;
+        private System.Windows.Forms.TextBox mdp1;
+        private System.Windows.Forms.TextBox Identifiant;
     }
 }

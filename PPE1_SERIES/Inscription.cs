@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using PPE1_SERIES.DAO;
 
 namespace PPE1_SERIES
 {
@@ -20,33 +21,26 @@ namespace PPE1_SERIES
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string verif = "C:\\Users\\loris\\source\\repos\\PPE1_SERIES\\PPE1_SERIES\\login.txt";
-            string s = "";
-            int doublon = 0;
-            StreamReader fichierEntree = File.OpenText(verif);
-            while ((s = fichierEntree.ReadLine()) != null && doublon == 0)
+            if (mdp1.Text == mdp2.Text)
             {
-                string[] split = s.Split(',');
-                if (split[0] == Identifiant.Text) doublon = 1;
+                IdentifiantDAO idao = new IdentifiantDAO();
+                string mdphashersaler = idao.HasherSalerMDP(mdp1.Text);
+                try
+                {
+                    idao.INSERT(Identifiant.Text, mdphashersaler);
+                    Connexion c = new Connexion("inscription");
+                    this.Close();
+                    c.Show();
+                }
+                catch(Exception)
+                {
+                    error.Text = "Une erreur est survenue!";
+                    error.Visible = true;
+                }
             }
-            fichierEntree.Close();
-
-            if(mdp1.Text == mdp2.Text && mdp1.Text != "" && doublon == 0)
+            else
             {
-                StreamWriter fichierSortie = File.AppendText(verif);
-                fichierSortie.WriteLine(Identifiant.Text + "," + mdp1.Text);
-                fichierSortie.WriteLine();
-                fichierSortie.Close();
-                this.Hide();
-                Connexion connect = new Connexion();
-                connect.ShowDialog();
-            } else if(mdp1.Text != mdp2.Text || mdp1.Text == "")
-            {
-                error.Text = "Mot de passe différent ou non inscrit!";
-                error.Visible = true;
-            } else
-            {
-                error.Text = "Identifiant déjà pris, veuillez en choisir un autre.";
+                error.Text = "Les deux mots de passes sont différents!";
                 error.Visible = true;
             }
         }

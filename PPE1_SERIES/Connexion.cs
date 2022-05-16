@@ -15,9 +15,15 @@ namespace PPE1_SERIES
 {
     public partial class Connexion : Form
     {
-        public Connexion()
+        public Connexion(string inscription)
         {
             InitializeComponent();
+            if(inscription != null)
+            {
+                error.Text = "Inscription réussie!";
+                error.BackColor=Color.DarkGreen;
+                error.Visible = true;
+            }
         }
 
         public static string identifiant;
@@ -28,9 +34,9 @@ namespace PPE1_SERIES
 
         private void Inscript_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Inscription Inscript = new Inscription();
-            Inscript.ShowDialog();
+            //this.Close();
+            Inscript.Show();
         }
 
         private void connect_Click(object sender, EventArgs e)
@@ -42,8 +48,8 @@ namespace PPE1_SERIES
             {
                 //int idconn = idao.getId(login.Text, mdphashersaler);
                 Accueil a = new Accueil(conn);
+                this.Close();
                 a.Show();
-                //this.Close();
             }
             else
             {

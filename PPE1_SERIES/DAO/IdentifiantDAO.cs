@@ -12,10 +12,10 @@ namespace PPE1_SERIES.DAO
     {
         DAO DAO = new DAO();
 
-        public void INSERT()
+        public void INSERT(string unLogin, string unMdp)
         {
             DAO.Conn();
-            DAO.CHANGE("");
+            DAO.CHANGE("INSERT INTO identifiant VALUES(null,'"+unLogin+"','"+unMdp+"');");
             DAO.connClose();
         }
 
