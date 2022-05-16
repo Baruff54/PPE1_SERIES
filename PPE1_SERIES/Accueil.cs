@@ -24,12 +24,12 @@ namespace PPE1_SERIES
             if (PPE1_SERIES.Connexion.identifiant != null)
             {
                 profil.Visible = true;
-                Connexion.Visible = false;
+                
                 maListe.Visible = true;
                 ajoutListe.Visible = true;
                 if (PPE1_SERIES.Connexion.identifiant == "admin")
                 {
-                    adminButton.Visible = true;
+                    //adminButton.Visible = true;
                 }
             }
 
@@ -68,7 +68,7 @@ namespace PPE1_SERIES
         {
             string s = "";
             string fichier = "C:\\Users\\loris\\source\\repos\\PPE1_SERIES\\PPE1_SERIES\\film.txt";
-            StreamReader serie = File.OpenText(fichier);
+            /*StreamReader serie = File.OpenText(fichier);
             while ((s = serie.ReadLine()) != null)
             {
                 string[] split = s.Split(',');
@@ -80,7 +80,7 @@ namespace PPE1_SERIES
                     nbSaisonTexte.Text = "Nombre de saison: " + split[4];
                     nbEpisodeTexte.Text = "Nombre d'épisode: " + split[5];
                 }
-            }
+            }*/
         }
 
         private void recherche_TextChanged(object sender, EventArgs e)
@@ -124,8 +124,8 @@ namespace PPE1_SERIES
         private void adminButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            admin Admin = new admin();
-            Admin.ShowDialog();
+            //admin Admin = new admin();
+            //Admin.ShowDialog();
         }
     }
 }

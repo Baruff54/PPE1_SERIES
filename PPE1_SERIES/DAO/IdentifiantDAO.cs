@@ -31,19 +31,26 @@ namespace PPE1_SERIES.DAO
             DAO.CHANGE("");
             DAO.connClose();
         }
-        public bool SELECT(string login, string mdp)
+        public int SELECT(string login, string mdp)
         {
-            List<String> resultatConn = new List<String>();
+            List<String> resultatId = new List<String>();
             DAO.Conn();
-            string requete = "SELECT COUNT(id) FROM identifiant WHERE login ='" + login + "' AND mdp='" + mdp + "';";
-            resultatConn = DAO.SELECT(requete);
-            bool resultat = false;
-            if (resultatConn.Contains("1"))
+            string requete = "SELECT id FROM identifiant WHERE login ='" + login + "' AND mdp='" + mdp + "';";
+            resultatId = DAO.SELECT(requete);
+            int id=0;
+            if (resultatId.Count() > 0)
             {
-                resultat = true;   
+                try
+                {
+                    id = Convert.ToInt32(resultatId[0]);
+                }
+                catch (Exception e)
+                {
+                    id = 0;
+                }
             }
             DAO.connClose();
-            return resultat;
+            return id;
         }
 
         public string HasherSalerMDP(string mdp)
@@ -61,29 +68,6 @@ namespace PPE1_SERIES.DAO
                 }
                 return mdpHasher.ToString();
             }
-        }
-
-        public int getId(string login, string mdp)
-        {
-            List<String> resultatId = new List<String>();
-            DAO.Conn();
-            string requete = "SELECT id FROM identifiant WHERE login ='" + login + "' AND mdp='" + mdp + "';";
-            resultatId = DAO.SELECT(requete);
-            string resultat;
-            if (resultatId.Count()>0)
-            {
-                try
-                {
-                    int id = Convert.ToInt32(resultatId[0]);
-                }
-                catch (Exception e)
-                {
-                    return 0;
-                }
-            }
-            DAO.connClose();
-            
-            return Convert.ToInt32(resultatId[0]);
         }
     }
 }

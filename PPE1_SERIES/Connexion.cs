@@ -37,11 +37,11 @@ namespace PPE1_SERIES
         {
             IdentifiantDAO idao = new IdentifiantDAO();
             string mdphashersaler = idao.HasherSalerMDP(mdp.Text);
-            bool conn = idao.SELECT(login.Text, mdphashersaler);
-            if (conn == true)
+            int conn = idao.SELECT(login.Text, mdphashersaler);
+            if (conn != 0)
             {
-                int idconn = idao.getId(login.Text, mdphashersaler);
-                Accueil a = new Accueil(idconn);
+                //int idconn = idao.getId(login.Text, mdphashersaler);
+                Accueil a = new Accueil(conn);
                 a.Show();
                 //this.Close();
             }

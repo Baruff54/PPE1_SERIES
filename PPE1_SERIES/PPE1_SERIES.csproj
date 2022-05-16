@@ -122,12 +122,6 @@
     <Compile Include="amis.Designer.cs">
       <DependentUpon>amis.cs</DependentUpon>
     </Compile>
-    <Compile Include="admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="admin.Designer.cs">
-      <DependentUpon>admin.cs</DependentUpon>
-    </Compile>
     <Compile Include="DAO\DAO.cs" />
     <Compile Include="DAO\EpisodeDAO.cs" />
     <Compile Include="DAO\EvaluerDAO.cs" />
