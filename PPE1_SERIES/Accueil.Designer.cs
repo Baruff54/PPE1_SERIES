@@ -36,8 +36,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.nbEpisodeTexte = new System.Windows.Forms.Label();
             this.nbSaisonTexte = new System.Windows.Forms.Label();
-            this.dateSortieTexte = new System.Windows.Forms.Label();
-            this.GenreTexte = new System.Windows.Forms.Label();
             this.titreTexte = new System.Windows.Forms.Label();
             this.ajoutListe = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -103,19 +101,17 @@
             // 
             this.panel1.Controls.Add(this.nbEpisodeTexte);
             this.panel1.Controls.Add(this.nbSaisonTexte);
-            this.panel1.Controls.Add(this.dateSortieTexte);
-            this.panel1.Controls.Add(this.GenreTexte);
             this.panel1.Controls.Add(this.titreTexte);
             this.panel1.Location = new System.Drawing.Point(21, 614);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(571, 118);
+            this.panel1.Size = new System.Drawing.Size(571, 60);
             this.panel1.TabIndex = 15;
             // 
             // nbEpisodeTexte
             // 
             this.nbEpisodeTexte.AutoSize = true;
-            this.nbEpisodeTexte.Location = new System.Drawing.Point(5, 89);
+            this.nbEpisodeTexte.Location = new System.Drawing.Point(5, 39);
             this.nbEpisodeTexte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nbEpisodeTexte.Name = "nbEpisodeTexte";
             this.nbEpisodeTexte.Size = new System.Drawing.Size(158, 17);
@@ -125,32 +121,12 @@
             // nbSaisonTexte
             // 
             this.nbSaisonTexte.AutoSize = true;
-            this.nbSaisonTexte.Location = new System.Drawing.Point(5, 68);
+            this.nbSaisonTexte.Location = new System.Drawing.Point(5, 22);
             this.nbSaisonTexte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nbSaisonTexte.Name = "nbSaisonTexte";
             this.nbSaisonTexte.Size = new System.Drawing.Size(127, 17);
             this.nbSaisonTexte.TabIndex = 3;
             this.nbSaisonTexte.Text = "Nombre de saison:";
-            // 
-            // dateSortieTexte
-            // 
-            this.dateSortieTexte.AutoSize = true;
-            this.dateSortieTexte.Location = new System.Drawing.Point(5, 47);
-            this.dateSortieTexte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.dateSortieTexte.Name = "dateSortieTexte";
-            this.dateSortieTexte.Size = new System.Drawing.Size(101, 17);
-            this.dateSortieTexte.TabIndex = 2;
-            this.dateSortieTexte.Text = "Date de sortie:";
-            // 
-            // GenreTexte
-            // 
-            this.GenreTexte.AutoSize = true;
-            this.GenreTexte.Location = new System.Drawing.Point(5, 26);
-            this.GenreTexte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.GenreTexte.Name = "GenreTexte";
-            this.GenreTexte.Size = new System.Drawing.Size(52, 17);
-            this.GenreTexte.TabIndex = 1;
-            this.GenreTexte.Text = "Genre:";
             // 
             // titreTexte
             // 
@@ -178,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 745);
+            this.ClientSize = new System.Drawing.Size(627, 684);
             this.Controls.Add(this.ajoutListe);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.maListe);
@@ -207,8 +183,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label nbEpisodeTexte;
         private System.Windows.Forms.Label nbSaisonTexte;
-        private System.Windows.Forms.Label dateSortieTexte;
-        private System.Windows.Forms.Label GenreTexte;
         private System.Windows.Forms.Label titreTexte;
         private System.Windows.Forms.Button ajoutListe;
     }
