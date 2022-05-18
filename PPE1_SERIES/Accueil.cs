@@ -56,6 +56,8 @@ namespace PPE1_SERIES
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string laSerie = listBox1.SelectedItem.ToString();
+            int i=0;
             /*string s = "";
             string fichier = "C:\\Users\\loris\\source\\repos\\PPE1_SERIES\\PPE1_SERIES\\film.txt";
             StreamReader serie = File.OpenText(fichier);
