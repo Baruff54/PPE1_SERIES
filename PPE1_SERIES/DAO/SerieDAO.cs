@@ -38,5 +38,14 @@ namespace PPE1_SERIES.DAO
             DAO.connClose();
             return lesSeries;
         }
+
+        public List<String> SELECT_SEARCH(string contain)
+        {
+            List<String> lesSeries = new List<String>();
+            DAO.Conn();
+            lesSeries = DAO.SELECT("SELECT nom FROM `serie` WHERE nom LIKE '%"+contain+"%'");
+            DAO.connClose();
+            return lesSeries;
+        }
     }
 }

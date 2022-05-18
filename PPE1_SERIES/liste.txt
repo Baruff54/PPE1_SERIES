@@ -1,6 +1,0 @@
-﻿loris,4,0,0
-loris,8,0,0
-admin,6,0,0
-admin,1,0,0
-admin,9,0,0
-loris,10,0,0
