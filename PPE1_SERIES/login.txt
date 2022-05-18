@@ -1,4 +1,0 @@
-﻿loris,baruff
-alex,dd
-paul,aa
-admin,admin

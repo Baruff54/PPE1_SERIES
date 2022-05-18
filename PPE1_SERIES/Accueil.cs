@@ -77,17 +77,12 @@ namespace PPE1_SERIES
 
         private void recherche_TextChanged(object sender, EventArgs e)
         {
-            string s = "";
-            string fichier = "C:\\Users\\loris\\source\\repos\\PPE1_SERIES\\PPE1_SERIES\\film.txt";
-            StreamReader serie = File.OpenText(fichier);
+            SerieDAO sdao = new SerieDAO();
+            List<String> lesSeries = sdao.SELECT_SEARCH(recherche.Text);
             listBox1.Items.Clear();
-            while ((s = serie.ReadLine()) != null)
+            foreach(String uneSerie in lesSeries)
             {
-                string[] split = s.Split(',');
-                if (split[1].ToUpper().IndexOf(recherche.Text.ToUpper()) != -1)
-                {
-                    listBox1.Items.Add(split[1]);
-                }
+                listBox1.Items.Add(uneSerie);
             }
         }
 
