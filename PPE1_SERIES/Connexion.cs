@@ -26,7 +26,7 @@ namespace PPE1_SERIES
             }
         }
 
-        public static string identifiant;
+        public static int identifiant;
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -46,8 +46,8 @@ namespace PPE1_SERIES
             int conn = idao.SELECT(login.Text, mdphashersaler);
             if (conn != 0)
             {
-                //int idconn = idao.getId(login.Text, mdphashersaler);
-                Accueil a = new Accueil(conn);
+                identifiant = idao.SELECT(login.Text, mdphashersaler);
+                Accueil a = new Accueil();
                 //this.Close();
                 a.Show();
             }

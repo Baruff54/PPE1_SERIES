@@ -38,7 +38,7 @@ namespace PPE1_SERIES
             while ((s = serie.ReadLine()) != null)
             {
                 string[] split = s.Split(',');
-                if (split[0] == Connexion.identifiant)
+                if (Convert.ToInt32(split[0]) == Connexion.identifiant)
                 {
                     listePerso.Items.Add(split[1]);
                 }
@@ -61,7 +61,7 @@ namespace PPE1_SERIES
             while ((s = serie.ReadLine()) != null)
             {
                 string[] split = s.Split(',');
-                if (split[1].ToUpper().IndexOf(recherche.Text.ToUpper()) != -1 && split[0] == Connexion.identifiant)
+                if (split[1].ToUpper().IndexOf(recherche.Text.ToUpper()) != -1 && Convert.ToInt32(split[0]) == Connexion.identifiant)
                 {
                     listePerso.Items.Add(split[1]);
                 }

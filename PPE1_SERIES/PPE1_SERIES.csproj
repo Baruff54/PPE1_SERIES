@@ -126,6 +126,7 @@
     <Compile Include="DAO\EpisodeDAO.cs" />
     <Compile Include="DAO\EvaluerDAO.cs" />
     <Compile Include="DAO\IdentifiantDAO.cs" />
+    <Compile Include="DAO\ListeDAO.cs" />
     <Compile Include="DAO\PartagerDAO.cs" />
     <Compile Include="DAO\SaisonDAO.cs" />
     <Compile Include="DAO\SerieDAO.cs" />

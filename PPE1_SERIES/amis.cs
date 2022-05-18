@@ -25,7 +25,7 @@ namespace PPE1_SERIES
             while ((s = amis.ReadLine()) != null)
             {
                 string[] split = s.Split(',');
-                if(split[0] == Connexion.identifiant) listeAmi.Items.Add(split[1]);
+                //if(split[0] == Connexion.identifiant) listeAmi.Items.Add(split[1]);
             }
             amis.Close();
         }
@@ -57,7 +57,7 @@ namespace PPE1_SERIES
                     while ((d = listeAmis.ReadLine()) != null && verifAmis == -1)
                     {
                         split = d.Split(',');
-                        if (split[0] == Connexion.identifiant && split[1] == tb_2.Text) verifAmis++;
+                        if (Convert.ToInt32(split[0]) == Connexion.identifiant && split[1] == tb_2.Text) verifAmis++;
                     }
                     listeAmis.Close();
                     if (verifAmis == -1)

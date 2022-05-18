@@ -14,11 +14,10 @@ namespace PPE1_SERIES
 {
     public partial class Accueil : Form
     {
-        private int idConnexion;
-        public Accueil(int idconn)
+        
+        public Accueil()
         {
             InitializeComponent();
-            this.idConnexion = idconn;
         }
         private void Accueil_Load(object sender, EventArgs e)
         {
@@ -32,9 +31,8 @@ namespace PPE1_SERIES
             profil.Visible = true;
             maListe.Visible = true;
             ajoutListe.Visible = true;
-
         }
-            private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             /*this.Hide();
             Connexion connect = new Connexion("");
@@ -51,7 +49,7 @@ namespace PPE1_SERIES
         private void button1_Click_1(object sender, EventArgs e)
         {
             //this.Hide();
-            maListe liste = new maListe(idConnexion);
+            maListe liste = new maListe();
             liste.ShowDialog();
         }
 
@@ -89,23 +87,18 @@ namespace PPE1_SERIES
 
         private void ajoutListe_Click(object sender, EventArgs e)
         {
-            string s = "";
-            int nom = -1;
-            string ajout = "C:\\Users\\loris\\source\\repos\\PPE1_SERIES\\PPE1_SERIES\\liste.txt";
-            string film = "C:\\Users\\loris\\source\\repos\\PPE1_SERIES\\PPE1_SERIES\\film.txt";
+            
+            SerieDAO serdao = new SerieDAO();
+            List<String> listeSerie = serdao.SELECT();
 
-            StreamReader serie = File.OpenText(film);
-            while ((s = serie.ReadLine()) != null && nom == -1)
+            foreach(String uneSerie in listeSerie)
             {
-                string[] split = s.Split(',');
-                if (split[1] == Convert.ToString(listBox1.SelectedItem)) nom = Convert.ToInt32(split[0]);
-            }
-            serie.Close();
-            if (nom != -1)
-            {
-                StreamWriter liste = File.AppendText(ajout);
-                liste.WriteLine(PPE1_SERIES.Connexion.identifiant + "," + nom + ",0,0");
-                liste.Close();
+                if (Convert.ToString(listBox1.SelectedIndex).CompareTo(uneSerie) == 1)
+                {
+                    ListeDAO ldao = new ListeDAO();
+                    int id = serdao.SELECT_ID(uneSerie);
+                    ldao.INSERT(Connexion.identifiant, id);
+                }
             }
         }
     }
