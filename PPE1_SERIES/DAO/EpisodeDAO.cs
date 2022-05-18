@@ -29,11 +29,13 @@ namespace PPE1_SERIES.DAO
             DAO.CHANGE("");
             DAO.connClose();
         }
-        public void SELECT()
+        public List<string> SELECT(string uneSerie, string uneSaison)
         {
             DAO.Conn();
-            DAO.SELECT("");
+            List<string> lesEpisodes = new List<string>();
+            lesEpisodes = DAO.SELECT("SELECT nom FROM `episode` WHERE idSerie =(SELECT id FROM serie WHERE nom='" + uneSerie + "') AND idSaison="+uneSaison+";");
             DAO.connClose();
+            return lesEpisodes;
         }
     }
 }

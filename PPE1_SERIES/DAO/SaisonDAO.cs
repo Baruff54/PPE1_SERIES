@@ -29,11 +29,13 @@ namespace PPE1_SERIES.DAO
             DAO.CHANGE("DELETE FROM `saison` WHERE idSerie = "+serie+" && numSaison = "+saison);
             DAO.connClose();
         }
-        public void SELECT()
+        public List<string> SELECT(string nomSerie)
         {
             DAO.Conn();
-            DAO.SELECT("SELECT * FROM `saison`");
+            List<string> lesSaisons = new List<string>();
+            lesSaisons=DAO.SELECT("SELECT numSaison FROM `saison` WHERE idSerie =(SELECT id FROM serie WHERE nom='"+nomSerie+"');");
             DAO.connClose();
+            return lesSaisons;            
         }
     }
 }

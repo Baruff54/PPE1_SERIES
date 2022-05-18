@@ -38,6 +38,14 @@ namespace PPE1_SERIES.DAO
             DAO.connClose();
             return lesSeries;
         }
+        public List<string> SELECTSELEC(int unUser)
+        {
+            DAO.Conn();
+            List<string> lesSeries = new List<string>();
+            lesSeries = DAO.SELECT("SELECT nom FROM serie INNER JOIN listeSuivi ON serie.id = listeSuivi.idSerie WHERE listeSuivi.idPersonne=" + unUser + ";");
+            DAO.connClose();
+            return lesSeries;
+        }
 
         public List<String> SELECT_SEARCH(string contain)
         {

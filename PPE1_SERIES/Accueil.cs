@@ -14,10 +14,11 @@ namespace PPE1_SERIES
 {
     public partial class Accueil : Form
     {
-        
+        private int idConnexion;
         public Accueil(int idconn)
         {
             InitializeComponent();
+            this.idConnexion = idconn;
         }
         private void Accueil_Load(object sender, EventArgs e)
         {
@@ -50,7 +51,7 @@ namespace PPE1_SERIES
         private void button1_Click_1(object sender, EventArgs e)
         {
             //this.Hide();
-            maListe liste = new maListe();
+            maListe liste = new maListe(idConnexion);
             liste.ShowDialog();
         }
 
