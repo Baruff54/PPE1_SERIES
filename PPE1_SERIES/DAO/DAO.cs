@@ -7,6 +7,7 @@ using MySqlConnector.Authentication;
 using MySqlConnector.Logging;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace PPE1_SERIES.DAO
 {
@@ -33,14 +34,14 @@ namespace PPE1_SERIES.DAO
             return resultat;
         }
 
-        public List<String> SELECTPARAM(string requete)
+        public List<int> SELECTPARAM(string requete)
         {
             List<MySqlParameter> param = new List<MySqlParameter>()
             {
                 new MySqlParameter{ParameterName="@idEpisode", MySqlDbType=MySql.Data.MySqlClient.MySqlDbType.Int32},
-                new MySqlParameter{ParameterName="@idSerie", MySqlDbType=MySql.Data.MySqlClient.MySqlDbType.Int32},
+                //new MySqlParameter{ParameterName="@idSerie", MySqlDbType=MySql.Data.MySqlClient.MySqlDbType.Int32},
             };
-            List<string> resultat = new List<string>();
+            List<int> resultat = new List<int>();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = connexion;
             cmd.CommandText = requete;
@@ -49,7 +50,8 @@ namespace PPE1_SERIES.DAO
             int i = 0;
             while (reader.Read())
             {
-                resultat.Add(reader[0].ToString());
+                resultat.Add(Convert.ToInt32(reader[0]));
+                Debug.WriteLine(reader);
                 i++;
             }
             return resultat;

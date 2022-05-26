@@ -14,7 +14,7 @@ namespace PPE1_SERIES.DAO
         public void INSERT(int idIdentifiant, int idEpisode, int idSaison, int idSerie, int uneNote, string unCommentaire)
         {
             DAO.Conn();
-            DAO.CHANGE("INSERT INTO evaluer VALUES("+idIdentifiant+","+idEpisode+","+idSaison+","+idSerie+","+uneNote+","+unCommentaire+")");
+            DAO.CHANGE("INSERT INTO evaluer VALUES("+idIdentifiant+","+idEpisode+","+idSaison+","+idSerie+","+uneNote+",'"+unCommentaire+"')");
             DAO.connClose();
         }
 
@@ -37,16 +37,24 @@ namespace PPE1_SERIES.DAO
             DAO.connClose();
         }
 
-        public List<string> getIdSerieIdEpisode(int numSaison, string serie, string episode)
+        public int getIdSerie(string serie)
         {
-            List<string> lesId = new List<string>();
+            List<string> idSaison = new List<string>();
             DAO.Conn();
-            string requete = "CALL recuperationInfosCommentaire('" + serie + "','" + episode + "'," + numSaison + ");";
-            DAO.CHANGE(requete);
-            lesId=DAO.SELECTPARAM("SELECT @idEpisode,@idSerie");
-
+            string requete = "SELECT id FROM serie WHERE serie.nom='" + serie + "'";
+            idSaison=DAO.SELECT(requete);
             DAO.connClose();
-            return lesId;
+            return Convert.ToInt32(idSaison[0]);
+        }
+
+        public int getIdEpisode(int idSerie, int numSaison, string nomEpisode)
+        {
+            List<string> idEpisode = new List<string>();
+            DAO.Conn();
+            string requete = "SELECT idEpisode FROM episode WHERE episode.nom='" + nomEpisode + "' AND idSaison=" + numSaison +" AND idSerie=" + idSerie;
+            idEpisode = DAO.SELECT(requete);
+            DAO.connClose();
+            return Convert.ToInt32(idEpisode[0]);
         }
     }
 }

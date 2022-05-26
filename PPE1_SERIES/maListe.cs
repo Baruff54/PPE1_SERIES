@@ -37,17 +37,16 @@ namespace PPE1_SERIES
         private void button1_Click(object sender, EventArgs e)
         {
             int idPersonne = Connexion.identifiant;
-            string noteVal = Convert.ToString(note.Value);
+            int noteVal = Convert.ToInt32(note.Value);
             string commentaire = comm.Text;
             EvaluerDAO edao = new EvaluerDAO();
             string labelSerie = lesSeries.SelectedItem.ToString();
             string labelSaison = lesSaisons.SelectedItem.ToString();
             string labelEpisode = lesEpisodes.SelectedItem.ToString();
-            List<string> lesId = new List<string>();
-            lesId=edao.getIdSerieIdEpisode(Convert.ToInt32(labelSaison), labelSerie, labelEpisode);
+            int idSerie=edao.getIdSerie(labelSerie);
+            int idEpisode = edao.getIdEpisode(idSerie,Convert.ToInt32(labelSaison),labelEpisode);
             int i = 0;
-            //INSERT(int idIdentifiant, int idEpisode, int idSaison, int idSerie, int uneNote, string unCommentaire)
-            //edao.INSERT();
+            edao.INSERT(idPersonne, idEpisode, Convert.ToInt32(labelSaison), idSerie, noteVal, commentaire);
 
         }
 
@@ -66,12 +65,12 @@ namespace PPE1_SERIES
                 panelInfosSerie.Visible = true;
                 labelNomSerie.Text ="Nom de la série : "+lesSeries.SelectedItem.ToString();
                 PartagerDAO pdao = new PartagerDAO();
-                List<String> LabelSaisonData = new List<string>();
-                LabelSaisonData=pdao.SELECTPROGRESSIONSAISON(Connexion.identifiant, lesSeries.SelectedItem.ToString());
-                labelSaisonArretee.Text = "Ma saison : " + LabelSaisonData.ElementAt(0);
-                List<string> labelEpisodeData = new List<string>();
-                labelEpisodeData=pdao.SELECTPROGRESSIONEPISODE(Connexion.identifiant, lesSeries.SelectedItem.ToString());
-                labelEpisodeArrete.Text = "Mon épisode : " + labelEpisodeData.ElementAt(0);
+                int saisonCourrante;
+                saisonCourrante=pdao.SELECTPROGRESSIONSAISON(Connexion.identifiant, lesSeries.SelectedItem.ToString());
+                labelSaisonArretee.Text = "Ma saison : " + saisonCourrante;
+                string episodeCourrant;
+                episodeCourrant=pdao.SELECTPROGRESSIONEPISODE(Connexion.identifiant, lesSeries.SelectedItem.ToString(),saisonCourrante);
+                labelEpisodeArrete.Text = "Mon épisode : " + episodeCourrant;
             }
         }
 

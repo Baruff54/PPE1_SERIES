@@ -35,25 +35,26 @@ namespace PPE1_SERIES.DAO
             DAO.SELECT("");
             DAO.connClose();
         }
-        public List<string> SELECTPROGRESSIONSAISON(int unUser, string uneSerie)
+        public int SELECTPROGRESSIONSAISON(int unUser, string uneSerie)
         {
-            List<String> progression = new List<String>();
             DAO.Conn();
-            progression = DAO.SELECT("SELECT max(saison.numSaison)FROM saison INNER JOIN serie ON saison.idSerie = serie.id" +
-                " INNER JOIN evaluer ON evaluer.idSerie=serie.id WHERE evaluer.idIdentifiant" +
-                " = "+unUser+" AND evaluer.idSerie=(SELECT id FROM serie WHERE nom='"+uneSerie +"')");
+            List<string> progression = new List<string>();
+            progression = DAO.SELECT("SELECT MAX(evaluer.idSaison) FROM evaluer WHERE evaluer.idIdentifiant="+unUser+" AND" +
+                " evaluer.idSerie=(SELECT serie.id FROM serie WHERE serie.nom='"+uneSerie+"')");
             DAO.connClose();
-            return progression;
+            return Convert.ToInt32(progression[0]);
         }
-        public List<string> SELECTPROGRESSIONEPISODE(int unUser, string uneSerie)
+        public string SELECTPROGRESSIONEPISODE(int unUser, string uneSerie, int uneSaison)
         {
             List<String> progression = new List<String>();
             DAO.Conn();
-            progression = DAO.SELECT("SELECT max(episode.nom)FROM episode INNER JOIN serie ON episode.idEpisode = serie.id" +
-                " INNER JOIN evaluer ON evaluer.idSerie=serie.id WHERE evaluer.idIdentifiant" +
-                " = " + unUser + " AND evaluer.idSerie=(SELECT id FROM serie WHERE nom='" + uneSerie + "')");
+            progression = DAO.SELECT("SELECT episode.nom FROM episode WHERE episode.idEpisode = "+
+            "(SELECT MAX(evaluer.idEpisode) FROM evaluer WHERE "+
+            "evaluer.idSerie = (SELECT serie.id FROM serie WHERE serie.nom = '"+uneSerie+"')"+
+            "AND evaluer.idIdentifiant = "+unUser+" AND evaluer.idSaison = "+uneSaison+")"+
+            "AND idSaison = "+uneSaison+ " AND idSerie = (SELECT serie.id FROM serie WHERE serie.nom='"+uneSerie+"')");
             DAO.connClose();
-            return progression;
+            return progression[0];
         }
     }
 }
