@@ -18,7 +18,7 @@ namespace PPE1_SERIES
         public Accueil()
         {
             InitializeComponent();
-            this.idConnexion = idconn;
+            
         }
         private void Accueil_Load(object sender, EventArgs e)
         {
@@ -50,7 +50,7 @@ namespace PPE1_SERIES
         private void button1_Click_1(object sender, EventArgs e)
         {
             //this.Hide();
-            maListe liste = new maListe(idConnexion);
+            maListe liste = new maListe();
             liste.ShowDialog();
         }
 

@@ -48,7 +48,7 @@ namespace PPE1_SERIES
             {
                 identifiant = idao.SELECT(login.Text, mdphashersaler);
                 Accueil a = new Accueil();
-                //this.Close();
+                this.Hide();
                 a.Show();
             }
             else

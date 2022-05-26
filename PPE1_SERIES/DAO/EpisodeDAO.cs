@@ -33,7 +33,7 @@ namespace PPE1_SERIES.DAO
         {
             DAO.Conn();
             List<string> lesEpisodes = new List<string>();
-            lesEpisodes = DAO.SELECT("SELECT nom FROM `episode` WHERE idSerie =(SELECT id FROM serie WHERE nom='" + uneSerie + "') AND idSaison="+uneSaison+";");
+            lesEpisodes = DAO.SELECT("SELECT nom FROM `episode` WHERE idSerie =(SELECT id FROM serie WHERE nom='" + uneSerie + "') AND idSaison="+uneSaison+" ORDER BY idEpisode ASC;");
             DAO.connClose();
             return lesEpisodes;
         }
