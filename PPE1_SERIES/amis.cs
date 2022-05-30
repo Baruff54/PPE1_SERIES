@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using PPE1_SERIES.DAO;
 
 namespace PPE1_SERIES
 {
@@ -37,40 +38,22 @@ namespace PPE1_SERIES
 
         private void accueil_Click_1(object sender, EventArgs e)
         {
-            /*this.Hide();
+            this.Hide();
             Accueil connect = new Accueil();
-            connect.ShowDialog();*/
+            connect.ShowDialog();
         }
 
         private void ajouter_Click(object sender, EventArgs e)
         {
-            string s = "", d = "";
-            int verifAmis = -1;
-            StreamReader fichierEntree = File.OpenText(verif);
-            while ((s = fichierEntree.ReadLine()) != null && verifAmis == -1)
-            {
-                string[] split = s.Split(',');
+            PartagerDAO partagerDAO = new PartagerDAO();
 
-                if (split[0] == tb_2.Text)
-                {
-                    StreamReader listeAmis = File.OpenText(fichierAmi);
-                    while ((d = listeAmis.ReadLine()) != null && verifAmis == -1)
-                    {
-                        split = d.Split(',');
-                        if (Convert.ToInt32(split[0]) == Connexion.identifiant && split[1] == tb_2.Text) verifAmis++;
-                    }
-                    listeAmis.Close();
-                    if (verifAmis == -1)
-                    {
-                        StreamWriter fichierSortie = File.AppendText(fichierAmi);
-                        fichierSortie.WriteLine(Connexion.identifiant + "," + tb_2.Text);
-                        fichierSortie.Close();
-                        listeAmi.Items.Add(tb_2.Text);
-                    }
-                    else MessageBox.Show("Vous avez déjà cette amis.");
-                }
+            if (partagerDAO.CHECK_ISFRIEND(pseudoAmi.Text))
+            {
+                messageAdd.Text = "Vous avez déjà demandé en ami cette personne.";
+                return;
             }
-            fichierEntree.Close();
+
+
         }
     }
 }

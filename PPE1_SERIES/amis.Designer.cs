@@ -33,20 +33,22 @@
             this.tb_2 = new System.Windows.Forms.TextBox();
             this.ajoute = new System.Windows.Forms.Label();
             this.rechercher = new System.Windows.Forms.Button();
-            this.tb_1 = new System.Windows.Forms.TextBox();
+            this.pseudoAmi = new System.Windows.Forms.TextBox();
             this.ami = new System.Windows.Forms.Label();
             this.listeAmi = new System.Windows.Forms.ListBox();
             this.accueil = new System.Windows.Forms.Button();
+            this.messageAdd = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.messageAdd);
             this.panel1.Controls.Add(this.ajouter);
             this.panel1.Controls.Add(this.tb_2);
             this.panel1.Controls.Add(this.ajoute);
             this.panel1.Controls.Add(this.rechercher);
-            this.panel1.Controls.Add(this.tb_1);
+            this.panel1.Controls.Add(this.pseudoAmi);
             this.panel1.Controls.Add(this.ami);
             this.panel1.Controls.Add(this.listeAmi);
             this.panel1.Controls.Add(this.accueil);
@@ -90,12 +92,12 @@
             this.rechercher.Text = "Rechercher";
             this.rechercher.UseVisualStyleBackColor = true;
             // 
-            // tb_1
+            // pseudoAmi
             // 
-            this.tb_1.Location = new System.Drawing.Point(111, 70);
-            this.tb_1.Name = "tb_1";
-            this.tb_1.Size = new System.Drawing.Size(100, 20);
-            this.tb_1.TabIndex = 5;
+            this.pseudoAmi.Location = new System.Drawing.Point(111, 70);
+            this.pseudoAmi.Name = "pseudoAmi";
+            this.pseudoAmi.Size = new System.Drawing.Size(100, 20);
+            this.pseudoAmi.TabIndex = 5;
             // 
             // ami
             // 
@@ -124,6 +126,14 @@
             this.accueil.UseVisualStyleBackColor = true;
             this.accueil.Click += new System.EventHandler(this.accueil_Click_1);
             // 
+            // messageAdd
+            // 
+            this.messageAdd.AutoSize = true;
+            this.messageAdd.Location = new System.Drawing.Point(52, 322);
+            this.messageAdd.Name = "messageAdd";
+            this.messageAdd.Size = new System.Drawing.Size(0, 13);
+            this.messageAdd.TabIndex = 10;
+            // 
             // amis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,11 +153,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button accueil;
         private System.Windows.Forms.Button rechercher;
-        private System.Windows.Forms.TextBox tb_1;
         private System.Windows.Forms.Label ami;
         private System.Windows.Forms.ListBox listeAmi;
         private System.Windows.Forms.Button ajouter;
         private System.Windows.Forms.TextBox tb_2;
         private System.Windows.Forms.Label ajoute;
+        private System.Windows.Forms.TextBox pseudoAmi;
+        private System.Windows.Forms.Label messageAdd;
     }
 }
