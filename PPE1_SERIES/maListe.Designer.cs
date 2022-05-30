@@ -50,6 +50,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.noteMoy = new System.Windows.Forms.Label();
+            this.amis = new System.Windows.Forms.Button();
             this.panelInfosSerie.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelSaison.SuspendLayout();
@@ -99,6 +100,7 @@
             // 
             // panelInfosSerie
             // 
+            this.panelInfosSerie.Controls.Add(this.amis);
             this.panelInfosSerie.Controls.Add(this.labelNomSerie);
             this.panelInfosSerie.Controls.Add(this.labelEpisodeArrete);
             this.panelInfosSerie.Controls.Add(this.labelSaisonArretee);
@@ -272,6 +274,16 @@
             this.noteMoy.TabIndex = 0;
             this.noteMoy.Text = "Note moyenne : ";
             // 
+            // amis
+            // 
+            this.amis.Location = new System.Drawing.Point(59, 194);
+            this.amis.Name = "amis";
+            this.amis.Size = new System.Drawing.Size(219, 23);
+            this.amis.TabIndex = 5;
+            this.amis.Text = "Voir les commentaires des amis";
+            this.amis.UseVisualStyleBackColor = true;
+            this.amis.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // maListe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -323,5 +335,6 @@
         private System.Windows.Forms.NumericUpDown note;
         private System.Windows.Forms.TextBox comm;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button amis;
     }
 }

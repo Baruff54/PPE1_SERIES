@@ -59,7 +59,7 @@ namespace PPE1_SERIES.DAO
         public int SELECT_ID(string contain)
         {
             DAO.Conn();
-            int id = Convert.ToInt32(DAO.SELECT("SELECT id FROM `serie` WHERE nom = '%" + contain + "%'")[0]);
+            int id = Convert.ToInt32(DAO.SELECT("SELECT id FROM `serie` WHERE nom LIKE '%" + contain + "%'")[0]);
             DAO.connClose();
             return id;
         }

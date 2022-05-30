@@ -39,8 +39,8 @@ namespace PPE1_SERIES.DAO
         {
             DAO.Conn();
             List<string> progression = new List<string>();
-            progression = DAO.SELECT("SELECT MAX(evaluer.idSaison) FROM evaluer WHERE evaluer.idIdentifiant="+unUser+" AND" +
-                " evaluer.idSerie=(SELECT serie.id FROM serie WHERE serie.nom='"+uneSerie+"')");
+            progression = DAO.SELECT("SELECT MAX(evaluer.idSaison) FROM evaluer WHERE evaluer.idIdentifiant=" + unUser + " AND" +
+                " evaluer.idSerie=(SELECT serie.id FROM serie WHERE serie.nom='" + uneSerie + "')");
             DAO.connClose();
             return Convert.ToInt32(progression[0]);
         }
@@ -48,13 +48,22 @@ namespace PPE1_SERIES.DAO
         {
             List<String> progression = new List<String>();
             DAO.Conn();
-            progression = DAO.SELECT("SELECT episode.nom FROM episode WHERE episode.idEpisode = "+
-            "(SELECT MAX(evaluer.idEpisode) FROM evaluer WHERE "+
-            "evaluer.idSerie = (SELECT serie.id FROM serie WHERE serie.nom = '"+uneSerie+"')"+
-            "AND evaluer.idIdentifiant = "+unUser+" AND evaluer.idSaison = "+uneSaison+")"+
-            "AND idSaison = "+uneSaison+ " AND idSerie = (SELECT serie.id FROM serie WHERE serie.nom='"+uneSerie+"')");
+            progression = DAO.SELECT("SELECT episode.nom FROM episode WHERE episode.idEpisode = " +
+            "(SELECT MAX(evaluer.idEpisode) FROM evaluer WHERE " +
+            "evaluer.idSerie = (SELECT serie.id FROM serie WHERE serie.nom = '" + uneSerie + "')" +
+            "AND evaluer.idIdentifiant = " + unUser + " AND evaluer.idSaison = " + uneSaison + ")" +
+            "AND idSaison = " + uneSaison + " AND idSerie = (SELECT serie.id FROM serie WHERE serie.nom='" + uneSerie + "')");
             DAO.connClose();
             return progression[0];
+        }
+        public List<string> SELECTLESAMIS(int unUser)
+        {
+            List<string> lesAmis = new List<string>();
+            DAO.Conn();
+            lesAmis = DAO.SELECT("SELECT identifiant.login FROM identifiant WHERE identifiant.id IN (SELECT idAmi FROM partager WHERE idIdentifiant ="+
+                unUser+" AND demande=0)");
+            DAO.connClose();
+            return lesAmis;
         }
     }
 }
