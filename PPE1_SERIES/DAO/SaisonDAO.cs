@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPE1_SERIES.Class;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,6 +46,15 @@ namespace PPE1_SERIES.DAO
             lesSaisons = DAO.SELECT("SELECT numSaison FROM `serie` INNER JOIN saison ON saison.idSerie = serie.id WHERE nom = '" + nomSerie + "' ORDER BY saison.numSaison DESC LIMIT 1;");
             DAO.connClose();
             return lesSaisons[0];
+        }
+
+        public List<string> SELECT_NUM_SAISON_AMI(Identifiant unAmi, int unIdSerie)
+        {
+            DAO.Conn();
+            List<string> lesSaisons = new List<string>();
+            lesSaisons = DAO.SELECT("SELECT DISTINCT numSaison FROM saison WHERE numSaison IN (SELECT idSaison FROM evaluer WHERE idIdentifiant=" + unAmi.Id + ")");
+            DAO.connClose();
+            return lesSaisons;
         }
     }
 }

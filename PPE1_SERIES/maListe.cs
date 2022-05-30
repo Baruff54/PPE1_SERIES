@@ -100,5 +100,15 @@ namespace PPE1_SERIES
                 panelCommentaires.Visible = true;
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            SerieDAO sdao = new SerieDAO();
+            string nomSerie = lesSeries.SelectedItem.ToString();
+            int laSerie=sdao.SELECT_ID(lesSeries.SelectedItem.ToString());
+            CommentairesAmis commAmis = new CommentairesAmis(laSerie);
+            this.Hide();
+            commAmis.Show();
+        }
     }
 }
