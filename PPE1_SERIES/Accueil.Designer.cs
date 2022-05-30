@@ -43,10 +43,9 @@
             // 
             // profil
             // 
-            this.profil.Location = new System.Drawing.Point(21, 16);
-            this.profil.Margin = new System.Windows.Forms.Padding(4);
+            this.profil.Location = new System.Drawing.Point(16, 13);
             this.profil.Name = "profil";
-            this.profil.Size = new System.Drawing.Size(283, 60);
+            this.profil.Size = new System.Drawing.Size(212, 49);
             this.profil.TabIndex = 0;
             this.profil.Text = "Mon profil";
             this.profil.UseVisualStyleBackColor = true;
@@ -55,42 +54,37 @@
             // 
             // recherche
             // 
-            this.recherche.Location = new System.Drawing.Point(101, 567);
-            this.recherche.Margin = new System.Windows.Forms.Padding(4);
+            this.recherche.Location = new System.Drawing.Point(76, 461);
             this.recherche.Name = "recherche";
-            this.recherche.Size = new System.Drawing.Size(188, 22);
+            this.recherche.Size = new System.Drawing.Size(142, 20);
             this.recherche.TabIndex = 12;
             this.recherche.TextChanged += new System.EventHandler(this.recherche_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 570);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(10, 463);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 17);
+            this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "Nom série :";
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
             this.listBox1.Items.AddRange(new object[] {
             ""});
-            this.listBox1.Location = new System.Drawing.Point(17, 82);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.listBox1.Location = new System.Drawing.Point(13, 67);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(575, 452);
+            this.listBox1.Size = new System.Drawing.Size(432, 368);
             this.listBox1.TabIndex = 10;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // maListe
             // 
-            this.maListe.Location = new System.Drawing.Point(310, 16);
-            this.maListe.Margin = new System.Windows.Forms.Padding(4);
+            this.maListe.Location = new System.Drawing.Point(232, 13);
             this.maListe.Name = "maListe";
-            this.maListe.Size = new System.Drawing.Size(283, 60);
+            this.maListe.Size = new System.Drawing.Size(212, 49);
             this.maListe.TabIndex = 14;
             this.maListe.Text = "Ma Liste";
             this.maListe.UseVisualStyleBackColor = true;
@@ -102,48 +96,43 @@
             this.panel1.Controls.Add(this.nbEpisodeTexte);
             this.panel1.Controls.Add(this.nbSaisonTexte);
             this.panel1.Controls.Add(this.titreTexte);
-            this.panel1.Location = new System.Drawing.Point(21, 614);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(16, 499);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(571, 60);
+            this.panel1.Size = new System.Drawing.Size(428, 49);
             this.panel1.TabIndex = 15;
             // 
             // nbEpisodeTexte
             // 
             this.nbEpisodeTexte.AutoSize = true;
-            this.nbEpisodeTexte.Location = new System.Drawing.Point(5, 39);
-            this.nbEpisodeTexte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.nbEpisodeTexte.Location = new System.Drawing.Point(4, 32);
             this.nbEpisodeTexte.Name = "nbEpisodeTexte";
-            this.nbEpisodeTexte.Size = new System.Drawing.Size(158, 17);
+            this.nbEpisodeTexte.Size = new System.Drawing.Size(118, 13);
             this.nbEpisodeTexte.TabIndex = 4;
             this.nbEpisodeTexte.Text = "Nombre d\'épisode total:";
             // 
             // nbSaisonTexte
             // 
             this.nbSaisonTexte.AutoSize = true;
-            this.nbSaisonTexte.Location = new System.Drawing.Point(5, 22);
-            this.nbSaisonTexte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.nbSaisonTexte.Location = new System.Drawing.Point(4, 18);
             this.nbSaisonTexte.Name = "nbSaisonTexte";
-            this.nbSaisonTexte.Size = new System.Drawing.Size(127, 17);
+            this.nbSaisonTexte.Size = new System.Drawing.Size(95, 13);
             this.nbSaisonTexte.TabIndex = 3;
             this.nbSaisonTexte.Text = "Nombre de saison:";
             // 
             // titreTexte
             // 
             this.titreTexte.AutoSize = true;
-            this.titreTexte.Location = new System.Drawing.Point(5, 5);
-            this.titreTexte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.titreTexte.Location = new System.Drawing.Point(4, 4);
             this.titreTexte.Name = "titreTexte";
-            this.titreTexte.Size = new System.Drawing.Size(41, 17);
+            this.titreTexte.Size = new System.Drawing.Size(31, 13);
             this.titreTexte.TabIndex = 0;
             this.titreTexte.Text = "Titre:";
             // 
             // ajoutListe
             // 
-            this.ajoutListe.Location = new System.Drawing.Point(464, 565);
-            this.ajoutListe.Margin = new System.Windows.Forms.Padding(4);
+            this.ajoutListe.Location = new System.Drawing.Point(348, 459);
             this.ajoutListe.Name = "ajoutListe";
-            this.ajoutListe.Size = new System.Drawing.Size(129, 28);
+            this.ajoutListe.Size = new System.Drawing.Size(97, 23);
             this.ajoutListe.TabIndex = 16;
             this.ajoutListe.Text = "Ajouter à ma liste";
             this.ajoutListe.UseVisualStyleBackColor = true;
@@ -152,9 +141,9 @@
             // 
             // Accueil
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 684);
+            this.ClientSize = new System.Drawing.Size(470, 556);
             this.Controls.Add(this.ajoutListe);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.maListe);
@@ -162,7 +151,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.profil);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Accueil";
             this.Text = "Accueil";
             this.Load += new System.EventHandler(this.Accueil_Load);

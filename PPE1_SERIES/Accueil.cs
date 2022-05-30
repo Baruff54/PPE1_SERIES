@@ -57,22 +57,11 @@ namespace PPE1_SERIES
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string laSerie = listBox1.SelectedItem.ToString();
-            int i=0;
-            /*string s = "";
-            string fichier = "C:\\Users\\loris\\source\\repos\\PPE1_SERIES\\PPE1_SERIES\\film.txt";
-            StreamReader serie = File.OpenText(fichier);
-            while ((s = serie.ReadLine()) != null)
-            {
-                string[] split = s.Split(',');
-                if (split[1] == Convert.ToString(listBox1.SelectedItem))
-                {
-                    titreTexte.Text = "Titre: " + split[1];
-                    GenreTexte.Text = "Genre: " + split[2];
-                    dateSortieTexte.Text = "Date de sortie: " + split[3];
-                    nbSaisonTexte.Text = "Nombre de saison: " + split[4];
-                    nbEpisodeTexte.Text = "Nombre d'épisode: " + split[5];
-                }
-            }*/
+            titreTexte.Text = "Titre: " + laSerie;
+            SaisonDAO saisonDAO = new SaisonDAO();
+            nbSaisonTexte.Text = "Nombre de saison: " + saisonDAO.COUNT_SAISON(laSerie);
+            EpisodeDAO episodeDAO = new EpisodeDAO();
+            nbEpisodeTexte.Text = "Nombre d'épisode: " + episodeDAO.SELECT_NBEPISODE(laSerie);
         }
 
         private void recherche_TextChanged(object sender, EventArgs e)

@@ -37,5 +37,14 @@ namespace PPE1_SERIES.DAO
             DAO.connClose();
             return lesEpisodes;
         }
+
+        public String SELECT_NBEPISODE(string uneSerie)
+        {
+            DAO.Conn();
+            List<string> lesEpisodes = new List<string>();
+            lesEpisodes = DAO.SELECT("SELECT count(*) FROM `episode` WHERE idSerie =(SELECT id FROM serie WHERE nom='" + uneSerie + "')");
+            DAO.connClose();
+            return lesEpisodes[0];
+        }
     }
 }
