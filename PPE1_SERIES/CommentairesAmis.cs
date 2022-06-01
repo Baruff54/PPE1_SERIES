@@ -22,6 +22,7 @@ namespace PPE1_SERIES
         }
 
         public static int laSerie;
+
         private void chargementListeAmis()
         {
             List<string> lesAmis = new List<string>();
@@ -43,10 +44,13 @@ namespace PPE1_SERIES
         private void ami_SelectedIndexChanged(object sender, EventArgs e)
         {
             panel2.Visible = true;
-            Identifiant unAmi = new Identifiant(0, ami.SelectedItem.ToString(), false);
-            IdentifiantDAO idao = new IdentifiantDAO();
-            unAmi.Id=idao.getIdByLogin(ami.SelectedItem.ToString());
-            this.chargementDesSaisons(unAmi);
+            if (ami.SelectedItem.ToString() != "")
+            {
+                Identifiant unAmi = new Identifiant(0, ami.SelectedItem.ToString(), false);
+                IdentifiantDAO idao = new IdentifiantDAO();
+                unAmi.Id = idao.getIdByLogin(ami.SelectedItem.ToString());
+                this.chargementDesSaisons(unAmi);
+            }
         }
 
         private void chargementDesSaisons(Identifiant unAmi)
@@ -70,7 +74,51 @@ namespace PPE1_SERIES
         {
             panel3.Visible = true;
             Serie uneSerieSelect = new Serie(laSerie, "");
-            Saison laSaison = new Saison(Convert.ToInt32(lesSaisonsAmis.SelectedItem.ToString(), uneSerieSelect);
+            if (lesSaisonsAmis.SelectedItem.ToString() != "")
+            {
+                Saison laSaisonSelect = new Saison(Convert.ToInt32(lesSaisonsAmis.SelectedItem.ToString()), uneSerieSelect);
+                Identifiant unAmi = new Identifiant(0, ami.SelectedItem.ToString(), false);
+                IdentifiantDAO idao = new IdentifiantDAO();
+                unAmi.Id = idao.getIdByLogin(ami.SelectedItem.ToString());//------------------PB AFFICHAGE DEUX EPISODES POUR lolo ALORS QU'IL NE DEVRAIT Y AVOIR QUE BAELOR
+                this.chargementDesEpisodes(laSerie, laSaisonSelect, Convert.ToInt32(unAmi.Id));
+            }
+        }
+
+        private void chargementDesEpisodes(int uneSerie, Saison uneSaison, int unAmi)
+        {
+            EpisodeDAO episodedao = new EpisodeDAO();
+            List<string> lesEpisodes = new List<string>();
+            lesEpisodes = episodedao.SELECT_Episodes_Amis(unAmi,uneSerie,uneSaison.Id) ;
+            foreach (string unEpisode in lesEpisodes)
+            {
+                lesEpisodesAmis.Items.Add(unEpisode);
+            }
+        }
+
+        private void lesEpisodesAmis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            panel4.Visible = true;
+            Serie uneSerieSelect = new Serie(laSerie, "");
+            if (lesSaisonsAmis.SelectedItem.ToString() != "")
+            {
+                Saison laSaisonSelect = new Saison(Convert.ToInt32(lesSaisonsAmis.SelectedItem.ToString()), uneSerieSelect);
+                Identifiant unAmi = new Identifiant(0, ami.SelectedItem.ToString(), false);
+                IdentifiantDAO idao = new IdentifiantDAO();
+                unAmi.Id = idao.getIdByLogin(ami.SelectedItem.ToString());
+                chargementDesLabels(laSerie, laSaisonSelect,unAmi.Id);
+            }
+        }
+
+        private void chargementDesLabels(int uneSerie, Saison uneSaison, int unAmi)
+        {
+            EvaluerDAO evaldao = new EvaluerDAO();
+            string nomEpisode = lesEpisodesAmis.SelectedItem.ToString();
+            EpisodeDAO episodeDAO = new EpisodeDAO();
+            int IdEpisode=episodeDAO.SELECT_ID_EPISODE(nomEpisode, uneSerie, uneSaison.Id);
+            int laNotetext = evaldao.GETNOTEAMI(uneSerie, uneSaison.Id, IdEpisode, unAmi);
+            string leCommentairetext = evaldao.GETCOMMENTAIREAMI(uneSerie, uneSaison.Id, IdEpisode, unAmi);
+            laNote.Text = "Note : " + laNotetext;
+            leCommentaire.Text = "Commentaire : " + leCommentairetext;
         }
     }
 }
