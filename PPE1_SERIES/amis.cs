@@ -21,14 +21,14 @@ namespace PPE1_SERIES
         {
             InitializeComponent();
 
-            string s = "";
+            /*string s = "";
             StreamReader amis = File.OpenText(fichierAmi);
             while ((s = amis.ReadLine()) != null)
             {
                 string[] split = s.Split(',');
                 //if(split[0] == Connexion.identifiant) listeAmi.Items.Add(split[1]);
             }
-            amis.Close();
+            amis.Close();*/
         }
 
         private void modif_Click(object sender, EventArgs e)
