@@ -38,7 +38,7 @@ namespace PPE1_SERIES
             this.lesSaisonsAmis = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.lesEpisodesAmis = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.laNote = new System.Windows.Forms.Label();
@@ -127,7 +127,7 @@ namespace PPE1_SERIES
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.comboBox2);
+            this.panel3.Controls.Add(this.lesEpisodesAmis);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(682, 95);
             this.panel3.Name = "panel3";
@@ -135,13 +135,14 @@ namespace PPE1_SERIES
             this.panel3.TabIndex = 6;
             this.panel3.Visible = false;
             // 
-            // comboBox2
+            // lesEpisodesAmis
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(168, 6);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(150, 24);
-            this.comboBox2.TabIndex = 6;
+            this.lesEpisodesAmis.FormattingEnabled = true;
+            this.lesEpisodesAmis.Location = new System.Drawing.Point(168, 6);
+            this.lesEpisodesAmis.Name = "lesEpisodesAmis";
+            this.lesEpisodesAmis.Size = new System.Drawing.Size(150, 24);
+            this.lesEpisodesAmis.TabIndex = 6;
+            this.lesEpisodesAmis.SelectedIndexChanged += new System.EventHandler(this.lesEpisodesAmis_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -229,7 +230,7 @@ namespace PPE1_SERIES
         private System.Windows.Forms.ComboBox lesSaisonsAmis;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox lesEpisodesAmis;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label laNote;

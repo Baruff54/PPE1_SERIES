@@ -56,5 +56,26 @@ namespace PPE1_SERIES.DAO
             DAO.connClose();
             return Convert.ToInt32(idEpisode[0]);
         }
+
+        public string GETCOMMENTAIREAMI(int idSerie, int numSaison, int idEpisode, int unAmi)
+        {
+            List<string> res = new List<string>();
+            DAO.Conn();
+            string requete = "SELECT commentaire FROM evaluer WHERE idIdentifiant = "+unAmi+" AND idEpisode ="+ idEpisode +" AND idSaison="+numSaison+" AND " +
+                "idSerie=" +idSerie;
+            res = DAO.SELECT(requete);
+            DAO.connClose();
+            return res[0];
+        }
+        public int GETNOTEAMI(int idSerie, int numSaison, int idEpisode, int unAmi)
+        {
+            List<string> res = new List<string>();
+            DAO.Conn();
+            string requete = "SELECT note FROM evaluer WHERE idIdentifiant = " + unAmi + " AND idEpisode =" + idEpisode + " AND idSaison=" + numSaison + " AND " +
+                "idSerie=" + idSerie;
+            res = DAO.SELECT(requete);
+            DAO.connClose();
+            return Convert.ToInt32(res[0]);
+        }
     }
 }

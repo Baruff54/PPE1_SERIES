@@ -77,8 +77,14 @@ namespace PPE1_SERIES
 
         private void ajoutListe_Click(object sender, EventArgs e)
         {
-            
             SerieDAO serdao = new SerieDAO();
+            int idSerie;
+            idSerie = serdao.SELECT_ID(listBox1.SelectedItem.ToString());
+            ListeDAO ldao = new ListeDAO();
+            ldao.INSERT(Connexion.identifiant, idSerie);
+            
+
+            /*SerieDAO serdao = new SerieDAO();
             List<String> listeSerie = serdao.SELECT();
 
             foreach(String uneSerie in listeSerie)
@@ -89,7 +95,7 @@ namespace PPE1_SERIES
                     int id = serdao.SELECT_ID(uneSerie);
                     ldao.INSERT(Connexion.identifiant, id);
                 }
-            }
+            }*/
         }
     }
 }
