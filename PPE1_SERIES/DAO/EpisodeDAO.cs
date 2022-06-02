@@ -66,7 +66,15 @@ namespace PPE1_SERIES.DAO
             string requete = "SELECT episode.idEpisode FROM episode WHERE episode.nom='" + unEpisode + "' AND idSaison="+uneSaison+" AND idSerie="+uneSaison;
             lesRes = DAO.SELECT(requete);
             DAO.connClose();
-            return Convert.ToInt32(lesRes[0]);
+            try
+            {
+                return Convert.ToInt32(lesRes[0]);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            
         }
     }
 }
