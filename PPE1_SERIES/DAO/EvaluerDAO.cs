@@ -65,7 +65,14 @@ namespace PPE1_SERIES.DAO
                 "idSerie=" +idSerie;
             res = DAO.SELECT(requete);
             DAO.connClose();
-            return res[0];
+            try
+            {
+                return res[0];
+            }
+            catch (Exception)
+            {
+                return "Il ny a pas de commentaires";
+            }
         }
         public int GETNOTEAMI(int idSerie, int numSaison, int idEpisode, int unAmi)
         {
@@ -75,7 +82,14 @@ namespace PPE1_SERIES.DAO
                 "idSerie=" + idSerie;
             res = DAO.SELECT(requete);
             DAO.connClose();
-            return Convert.ToInt32(res[0]);
+            try
+            {
+                return Convert.ToInt32(res[0]);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
     }
 }
