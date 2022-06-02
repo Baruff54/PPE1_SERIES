@@ -14,21 +14,9 @@ namespace PPE1_SERIES
 {
     public partial class amis : Form
     {
-
-        private static string fichierAmi = "C:\\Users\\loris\\source\\repos\\PPE1_SERIES\\PPE1_SERIES\\ami.txt";
-        private static string verif = "C:\\Users\\loris\\source\\repos\\PPE1_SERIES\\PPE1_SERIES\\login.txt";
         public amis()
         {
             InitializeComponent();
-
-            /*string s = "";
-            StreamReader amis = File.OpenText(fichierAmi);
-            while ((s = amis.ReadLine()) != null)
-            {
-                string[] split = s.Split(',');
-                //if(split[0] == Connexion.identifiant) listeAmi.Items.Add(split[1]);
-            }
-            amis.Close();*/
         }
 
         private void modif_Click(object sender, EventArgs e)
@@ -46,14 +34,31 @@ namespace PPE1_SERIES
         private void ajouter_Click(object sender, EventArgs e)
         {
             PartagerDAO partagerDAO = new PartagerDAO();
+            IdentifiantDAO idDAO = new IdentifiantDAO();
 
-            if (partagerDAO.CHECK_ISFRIEND(pseudoAmi.Text))
+            int idFriends = idDAO.getIdByLogin(searchFriends.Text);
+
+            if(idFriends == -1)
+            {
+                messageAdd.Text = "Cette identifiant n'éxiste pas.";
+                return;
+            }
+
+            if (partagerDAO.CHECK_ISFRIEND(idFriends))
             {
                 messageAdd.Text = "Vous avez déjà demandé en ami cette personne.";
                 return;
             }
 
+            if(partagerDAO.CHECK_ASKEDFRIEND(idFriends))
+            {
+                messageAdd.Text = "Cette utilisateur vous avez déjà envoyer une requête, vous êtes maintenant ami :D";
+                return;
+            }
 
+            partagerDAO.SEND_FRIENDS(idFriends);
+
+            messageAdd.Text = "Votre demande a été effectué avec succès.";
         }
     }
 }

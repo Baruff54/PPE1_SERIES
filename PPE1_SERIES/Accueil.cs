@@ -77,25 +77,18 @@ namespace PPE1_SERIES
 
         private void ajoutListe_Click(object sender, EventArgs e)
         {
+            errorMessage.Text = "";
             SerieDAO serdao = new SerieDAO();
             int idSerie;
             idSerie = serdao.SELECT_ID(listBox1.SelectedItem.ToString());
             ListeDAO ldao = new ListeDAO();
-            ldao.INSERT(Connexion.identifiant, idSerie);
-            
-
-            /*SerieDAO serdao = new SerieDAO();
-            List<String> listeSerie = serdao.SELECT();
-
-            foreach(String uneSerie in listeSerie)
+            try
             {
-                if (Convert.ToString(listBox1.SelectedIndex).CompareTo(uneSerie) == 1)
-                {
-                    ListeDAO ldao = new ListeDAO();
-                    int id = serdao.SELECT_ID(uneSerie);
-                    ldao.INSERT(Connexion.identifiant, id);
-                }
-            }*/
+                ldao.INSERT(Connexion.identifiant, idSerie);
+            } catch (Exception ex)
+            {
+                errorMessage.Text = "Vous avez déjà cette série dans votre liste.";
+            }
         }
     }
 }

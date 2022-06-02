@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.messageAdd = new System.Windows.Forms.Label();
             this.ajouter = new System.Windows.Forms.Button();
-            this.tb_2 = new System.Windows.Forms.TextBox();
+            this.searchFriends = new System.Windows.Forms.TextBox();
             this.ajoute = new System.Windows.Forms.Label();
             this.rechercher = new System.Windows.Forms.Button();
             this.pseudoAmi = new System.Windows.Forms.TextBox();
             this.ami = new System.Windows.Forms.Label();
             this.listeAmi = new System.Windows.Forms.ListBox();
             this.accueil = new System.Windows.Forms.Button();
-            this.messageAdd = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +45,7 @@
             // 
             this.panel1.Controls.Add(this.messageAdd);
             this.panel1.Controls.Add(this.ajouter);
-            this.panel1.Controls.Add(this.tb_2);
+            this.panel1.Controls.Add(this.searchFriends);
             this.panel1.Controls.Add(this.ajoute);
             this.panel1.Controls.Add(this.rechercher);
             this.panel1.Controls.Add(this.pseudoAmi);
@@ -57,6 +57,14 @@
             this.panel1.Size = new System.Drawing.Size(379, 379);
             this.panel1.TabIndex = 0;
             // 
+            // messageAdd
+            // 
+            this.messageAdd.AutoSize = true;
+            this.messageAdd.Location = new System.Drawing.Point(52, 322);
+            this.messageAdd.Name = "messageAdd";
+            this.messageAdd.Size = new System.Drawing.Size(0, 13);
+            this.messageAdd.TabIndex = 10;
+            // 
             // ajouter
             // 
             this.ajouter.Location = new System.Drawing.Point(217, 341);
@@ -67,12 +75,12 @@
             this.ajouter.UseVisualStyleBackColor = true;
             this.ajouter.Click += new System.EventHandler(this.ajouter_Click);
             // 
-            // tb_2
+            // searchFriends
             // 
-            this.tb_2.Location = new System.Drawing.Point(111, 341);
-            this.tb_2.Name = "tb_2";
-            this.tb_2.Size = new System.Drawing.Size(100, 20);
-            this.tb_2.TabIndex = 8;
+            this.searchFriends.Location = new System.Drawing.Point(111, 341);
+            this.searchFriends.Name = "searchFriends";
+            this.searchFriends.Size = new System.Drawing.Size(100, 20);
+            this.searchFriends.TabIndex = 8;
             // 
             // ajoute
             // 
@@ -126,14 +134,6 @@
             this.accueil.UseVisualStyleBackColor = true;
             this.accueil.Click += new System.EventHandler(this.accueil_Click_1);
             // 
-            // messageAdd
-            // 
-            this.messageAdd.AutoSize = true;
-            this.messageAdd.Location = new System.Drawing.Point(52, 322);
-            this.messageAdd.Name = "messageAdd";
-            this.messageAdd.Size = new System.Drawing.Size(0, 13);
-            this.messageAdd.TabIndex = 10;
-            // 
             // amis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,9 +156,9 @@
         private System.Windows.Forms.Label ami;
         private System.Windows.Forms.ListBox listeAmi;
         private System.Windows.Forms.Button ajouter;
-        private System.Windows.Forms.TextBox tb_2;
         private System.Windows.Forms.Label ajoute;
         private System.Windows.Forms.TextBox pseudoAmi;
         private System.Windows.Forms.Label messageAdd;
+        private System.Windows.Forms.TextBox searchFriends;
     }
 }

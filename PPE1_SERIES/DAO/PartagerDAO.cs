@@ -35,11 +35,11 @@ namespace PPE1_SERIES.DAO
             DAO.SELECT("");
             DAO.connClose();
         }
-        public bool CHECK_ISFRIEND(string unUser)
+        public bool CHECK_ISFRIEND(int unUser)
         {
             List<String> progression = new List<String>();
             DAO.Conn();
-            progression = DAO.SELECT("SELECT count(*) FROM `partager` INNER JOIN identifiant ON identifiant.id = partager.idAmi WHERE identifiant.login = '" + unUser + "'");
+            progression = DAO.SELECT("SELECT * FROM `partager` WHERE idAmi = '" + unUser + "'");
             DAO.connClose();
 
             if(progression.Count > 0)
@@ -47,20 +47,25 @@ namespace PPE1_SERIES.DAO
             else
                 return false;
         }
-        public bool CHECK_ASKEDFRIEND(string unUser)
+        public bool CHECK_ASKEDFRIEND(int unUser)
         {
             List<String> progression = new List<String>();
             DAO.Conn();
-            progression = DAO.SELECT("SELECT * FROM `partager` INNER JOIN identifiant ON identifiant.id = partager.idIdentifiant WHERE identifiant.login = '"+unUser+"' && idAmi = '"+Connexion.identifiant+"' && demande = 1;");
+            progression = DAO.SELECT("SELECT * FROM `partager` WHERE idIdentifiant = '"+unUser+"' && idAmi = '"+Connexion.identifiant+"' && demande = 1;");
             DAO.connClose();
 
             if (progression.Count > 0)
             {
-                DAO.CHANGE("");
+                DAO.CHANGE("INSERT INTO `partager`(`idIdentifiant`, `idAmi`, `demande`) VALUES ('"+Connexion.identifiant+"','"+unUser+"','0');");
+                DAO.CHANGE("UPDATE `partager` SET `demande`= 0 WHERE idIdentifiant = '" + unUser + "' && idAmi = '" + Connexion.identifiant + "'");
                 return true;
             }
             else
                 return false;
+        }
+        public void SEND_FRIENDS(int user)
+        {
+            DAO.CHANGE("INSERT INTO `partager`(`idIdentifiant`, `idAmi`, `demande`) VALUES ('" + Connexion.identifiant + "','" + user + "','1');");
         }
         public int SELECTPROGRESSIONSAISON(int unUser, string uneSerie)
         {
