@@ -85,6 +85,7 @@ namespace PPE1_SERIES
             try
             {
                 ldao.INSERT(Connexion.identifiant, idSerie);
+                errorMessage.Text = "La série a bien été enregistrée avec succès.";
             } catch (Exception ex)
             {
                 errorMessage.Text = "Vous avez déjà cette série dans votre liste.";

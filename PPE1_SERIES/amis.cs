@@ -19,6 +19,18 @@ namespace PPE1_SERIES
             InitializeComponent();
         }
 
+        private void amis_Load(object sender, EventArgs e)
+        {
+            PartagerDAO partagerDAO = new PartagerDAO();
+            List<string> lesAmis = new List<string>();
+            lesAmis = partagerDAO.SELECT_FRIENDS();
+            IdentifiantDAO identifiantDAO = new IdentifiantDAO();
+            foreach (string unAmi in lesAmis)
+            {
+                listeAmi.Items.Add(identifiantDAO.getLoginById(Convert.ToInt16(unAmi)));
+            }
+        }
+
         private void modif_Click(object sender, EventArgs e)
         {
 
@@ -59,6 +71,22 @@ namespace PPE1_SERIES
             partagerDAO.SEND_FRIENDS(idFriends);
 
             messageAdd.Text = "Votre demande a été effectué avec succès.";
+        }
+
+        private void listeAmi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pseudoAmi_TextChanged(object sender, EventArgs e)
+        {
+            PartagerDAO partagerDAO = new PartagerDAO();
+            List<String> lesAmi = partagerDAO.SELECT_SEARCH(pseudoAmi.Text);
+            listeAmi.Items.Clear();
+            foreach (String uneSerie in lesAmi)
+            {
+                listeAmi.Items.Add(uneSerie);
+            }
         }
     }
 }

@@ -10,30 +10,21 @@ namespace PPE1_SERIES.DAO
     {
         DAO DAO = new DAO();
 
-        public void INSERT()
+        public List<String> SELECT_FRIENDS()
         {
+            List<String> progression = new List<String>();
             DAO.Conn();
-            DAO.CHANGE("");
+            progression = DAO.SELECT("SELECT idAmi FROM `partager` WHERE idIdentifiant = '" + Connexion.identifiant + "'");
             DAO.connClose();
+            return progression;
         }
-
-        public void UPDATE()
+        public List<String> SELECT_SEARCH(string search)
         {
+            List<String> progression = new List<String>();
             DAO.Conn();
-            DAO.CHANGE("");
+            progression = DAO.SELECT("SELECT login FROM `partager` INNER JOIN identifiant ON identifiant.id = partager.idAmi WHERE identifiant.login LIKE '%" + search+ "%' && idIdentifiant = '" + Connexion.identifiant + "'");
             DAO.connClose();
-        }
-        public void DELETE()
-        {
-            DAO.Conn();
-            DAO.CHANGE("");
-            DAO.connClose();
-        }
-        public void SELECT()
-        {
-            DAO.Conn();
-            DAO.SELECT("");
-            DAO.connClose();
+            return progression;
         }
         public bool CHECK_ISFRIEND(int unUser)
         {

@@ -59,12 +59,10 @@ namespace PPE1_SERIES.DAO
 
         public void CHANGE(string requete)
         {
-            connexion.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = connexion;
             cmd.CommandText = requete;
             cmd.ExecuteNonQuery();
-            connexion.Close();
         }
         public void connClose()
         {

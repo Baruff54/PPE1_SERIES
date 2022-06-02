@@ -106,6 +106,7 @@
             this.pseudoAmi.Name = "pseudoAmi";
             this.pseudoAmi.Size = new System.Drawing.Size(100, 20);
             this.pseudoAmi.TabIndex = 5;
+            this.pseudoAmi.TextChanged += new System.EventHandler(this.pseudoAmi_TextChanged);
             // 
             // ami
             // 
@@ -123,6 +124,7 @@
             this.listeAmi.Name = "listeAmi";
             this.listeAmi.Size = new System.Drawing.Size(329, 212);
             this.listeAmi.TabIndex = 3;
+            this.listeAmi.SelectedIndexChanged += new System.EventHandler(this.listeAmi_SelectedIndexChanged);
             // 
             // accueil
             // 
@@ -142,6 +144,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "amis";
             this.Text = "Accueil";
+            this.Load += new System.EventHandler(this.amis_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

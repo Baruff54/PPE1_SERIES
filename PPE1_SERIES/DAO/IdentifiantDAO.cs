@@ -84,5 +84,19 @@ namespace PPE1_SERIES.DAO
                 return -1;
             }
         }
+        public String getLoginById(int id)
+        {
+            DAO.Conn();
+            string requete = "SELECT login FROM identifiant WHERE id ='" + id + "'";
+            try
+            {
+                 return DAO.SELECT(requete)[0];
+            }
+            catch (Exception ex)
+            {
+                DAO.connClose();
+                return "";
+            }
+        }
     }
 }
