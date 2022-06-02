@@ -56,7 +56,9 @@ namespace PPE1_SERIES.DAO
         }
         public void SEND_FRIENDS(int user)
         {
+            DAO.Conn();
             DAO.CHANGE("INSERT INTO `partager`(`idIdentifiant`, `idAmi`, `demande`) VALUES ('" + Connexion.identifiant + "','" + user + "','1');");
+            DAO.connClose();
         }
         public int SELECTPROGRESSIONSAISON(int unUser, string uneSerie)
         {

@@ -77,6 +77,7 @@ namespace PPE1_SERIES.DAO
             try
             {
                 int unId = Convert.ToInt32(DAO.SELECT(requete)[0]);
+                DAO.connClose();
                 return unId;
             } catch(Exception ex)
             {
@@ -90,7 +91,9 @@ namespace PPE1_SERIES.DAO
             string requete = "SELECT login FROM identifiant WHERE id ='" + id + "'";
             try
             {
-                 return DAO.SELECT(requete)[0];
+                DAO.connClose();
+                return DAO.SELECT(requete)[0];
+                
             }
             catch (Exception ex)
             {
