@@ -38,6 +38,7 @@
             this.nbSaisonTexte = new System.Windows.Forms.Label();
             this.titreTexte = new System.Windows.Forms.Label();
             this.ajoutListe = new System.Windows.Forms.Button();
+            this.errorMessage = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,12 +94,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.errorMessage);
             this.panel1.Controls.Add(this.nbEpisodeTexte);
             this.panel1.Controls.Add(this.nbSaisonTexte);
             this.panel1.Controls.Add(this.titreTexte);
-            this.panel1.Location = new System.Drawing.Point(16, 499);
+            this.panel1.Location = new System.Drawing.Point(16, 487);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(428, 49);
+            this.panel1.Size = new System.Drawing.Size(428, 78);
             this.panel1.TabIndex = 15;
             // 
             // nbEpisodeTexte
@@ -139,11 +141,19 @@
             this.ajoutListe.Visible = false;
             this.ajoutListe.Click += new System.EventHandler(this.ajoutListe_Click);
             // 
+            // errorMessage
+            // 
+            this.errorMessage.AutoSize = true;
+            this.errorMessage.Location = new System.Drawing.Point(7, 62);
+            this.errorMessage.Name = "errorMessage";
+            this.errorMessage.Size = new System.Drawing.Size(0, 13);
+            this.errorMessage.TabIndex = 5;
+            // 
             // Accueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 556);
+            this.ClientSize = new System.Drawing.Size(470, 577);
             this.Controls.Add(this.ajoutListe);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.maListe);
@@ -173,6 +183,7 @@
         private System.Windows.Forms.Label nbSaisonTexte;
         private System.Windows.Forms.Label titreTexte;
         private System.Windows.Forms.Button ajoutListe;
+        private System.Windows.Forms.Label errorMessage;
     }
 }
 

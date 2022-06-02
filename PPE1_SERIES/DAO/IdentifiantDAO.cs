@@ -74,9 +74,15 @@ namespace PPE1_SERIES.DAO
         {
             DAO.Conn();
             string requete = "SELECT id FROM identifiant WHERE login='" + unLogin + "'";
-            int unId=Convert.ToInt32(DAO.SELECT(requete)[0]);
-            DAO.connClose();
-            return unId;
+            try
+            {
+                int unId = Convert.ToInt32(DAO.SELECT(requete)[0]);
+                return unId;
+            } catch(Exception ex)
+            {
+                DAO.connClose();
+                return -1;
+            }
         }
     }
 }
