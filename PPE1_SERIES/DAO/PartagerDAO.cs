@@ -39,7 +39,7 @@ namespace PPE1_SERIES.DAO
         {
             List<String> progression = new List<String>();
             DAO.Conn();
-            progression = DAO.SELECT("SELECT count(*) FROM `partager` INNER JOIN identifiant ON identifiant.id = partager.idAmi WHERE identifiant.login = '" + unUser + "'");
+            progression = DAO.SELECT("SELECT * FROM `partager` INNER JOIN identifiant ON identifiant.id = partager.idAmi WHERE identifiant.login = '" + unUser + "'");
             DAO.connClose();
 
             if(progression.Count > 0)
@@ -56,7 +56,9 @@ namespace PPE1_SERIES.DAO
 
             if (progression.Count > 0)
             {
-                DAO.CHANGE("");
+                IdentifiantDAO identifiantDAO = new IdentifiantDAO();
+                DAO.CHANGE("INSERT INTO `partager`(`idIdentifiant`, `idAmi`, `demande`) VALUES ('"+Connexion.identifiant+"','"+identifiantDAO.getIdByLogin(unUser)+"','0');");
+                DAO.CHANGE("UPDATE `partager` SET `demande`= 0 WHERE idIdentifiant = '" + identifiantDAO.getIdByLogin(unUser) + "' && idAmi = '" + Connexion.identifiant + "'");
                 return true;
             }
             else

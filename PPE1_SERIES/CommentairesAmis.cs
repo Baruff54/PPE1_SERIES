@@ -70,7 +70,7 @@ namespace PPE1_SERIES
         {
             panel3.Visible = true;
             Serie uneSerieSelect = new Serie(laSerie, "");
-            Saison laSaison = new Saison(Convert.ToInt32(lesSaisonsAmis.SelectedItem.ToString(), uneSerieSelect);
+            //Saison laSaison = new Saison(Convert.ToInt32(lesSaisonsAmis.SelectedItem.ToString(), uneSerieSelect));
         }
     }
 }

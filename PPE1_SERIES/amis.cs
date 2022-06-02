@@ -53,7 +53,11 @@ namespace PPE1_SERIES
                 return;
             }
 
-
+            if(partagerDAO.CHECK_ISFRIEND(pseudoAmi.Text))
+            {
+                messageAdd.Text = "Cette utilisateur vous avez déjà envoyer une requête, vous êtes maintenant ami :D";
+                return;
+            }
         }
     }
 }
