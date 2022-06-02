@@ -69,7 +69,15 @@ namespace PPE1_SERIES.DAO
             progression = DAO.SELECT("SELECT MAX(evaluer.idSaison) FROM evaluer WHERE evaluer.idIdentifiant=" + unUser + " AND" +
                 " evaluer.idSerie=(SELECT serie.id FROM serie WHERE serie.nom='" + uneSerie + "')");
             DAO.connClose();
-            return Convert.ToInt32(progression[0]);
+            try
+            {
+                return Convert.ToInt32(progression[0]);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            
         }
         public string SELECTPROGRESSIONEPISODE(int unUser, string uneSerie, int uneSaison)
         {
@@ -81,7 +89,14 @@ namespace PPE1_SERIES.DAO
             "AND evaluer.idIdentifiant = " + unUser + " AND evaluer.idSaison = " + uneSaison + ")" +
             "AND idSaison = " + uneSaison + " AND idSerie = (SELECT serie.id FROM serie WHERE serie.nom='" + uneSerie + "')");
             DAO.connClose();
-            return progression[0];
+            try
+            {
+                return progression[0];
+            }
+            catch (Exception)
+            {
+                return "Vous n'avez pas encore\nenregistré une progression";
+            }
         }
         public List<string> SELECTLESAMIS(int unUser)
         {

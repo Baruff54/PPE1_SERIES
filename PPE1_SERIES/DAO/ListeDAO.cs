@@ -20,7 +20,8 @@ namespace PPE1_SERIES.DAO
         public void INSERT(int idPers, int idSerie)
         {
             DAO.Conn();
-            DAO.CHANGE("INSERT INTO `listeSuivi`(`idPersonne`, `idSerie`) VALUES ('"+ idPers + "','"+ idSerie + "')");
+            string requete = "INSERT INTO `listeSuivi`(`idPersonne`, `idSerie`) VALUES (" + idPers + "," + idSerie + ")";
+            DAO.CHANGE(requete);
             DAO.connClose();
         }
 
